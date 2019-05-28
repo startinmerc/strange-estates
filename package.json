@@ -1,0 +1,15 @@
+{
+  "name": "strange-estates",
+  "version": "1.0.0",
+  "description": "A product of Strange Industries",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "STM",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.17.1"
+  }
+}
