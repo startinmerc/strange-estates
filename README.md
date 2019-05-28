@@ -16,3 +16,8 @@
 * Add in body-parser
 * Setup route to show form
 * Add basic form
+
+
+###Style listings page
+* Add better header
+* Make listings display in grid

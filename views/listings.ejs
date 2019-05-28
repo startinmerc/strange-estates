@@ -1,15 +1,31 @@
 <%include partials/header%>
+<div class="container">
+	<header class="jumbotron">
+			<div class="container">
+			<h1>Strange Estates</h1>
+			<p>Specialist estate sales</p>
+			<p>
+				<a class="btn btn-primary btn-lrg" href="/listings/new">Add new listing</a>
+			</p>
+		</div>
+	</header>
 
-<h1>Listing Page!</h1>
-
-<a href="/listings/new">Add new listing</a>
-
-<% listings.forEach(function(listing){ %>
-	<div>
-		<h4><%= listing.name%></h4>
-		<img src="<%=listing.image%>">
+	<div class="row">
+		<div class="col-lg-12">Our newest listings</div>
 	</div>
 
-<% }); %>
-
+	<div class="row">
+		<% listings.forEach(function(listing){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="card">
+					<img class="card-img-top" src="<%=listing.image%>">
+					<div class="card-body">
+						<h4 class="card-title text-center"><%= listing.name%></h4>
+						<p class="card-text">lorem</p>
+					</div><!-- card-body -->
+				</div><!-- card -->
+			</div><!-- col -->
+		<% }); %>
+	</div><!-- row -->
+</div><!-- container -->
 <%include partials/footer%>
