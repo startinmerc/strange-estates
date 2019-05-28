@@ -21,3 +21,7 @@
 ###Style listings page
 * Add better header
 * Make listings display in grid
+
+###Style Navbar + Form
+* Add navbar to header
+* Style new listing form
