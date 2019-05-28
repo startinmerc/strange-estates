@@ -1,0 +1,9 @@
+<h1>Listing Page!</h1>
+
+<% listings.forEach(function(listing){ %>
+	<div>
+		<h4><%= listing.name%></h4>
+		<img src="<%=listing.image%>">
+	</div>
+
+<% }); %>
