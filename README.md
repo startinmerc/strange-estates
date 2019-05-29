@@ -25,3 +25,8 @@
 ###Style Navbar + Form
 * Add navbar to header
 * Style new listing form
+
+###Add Mongoose
+* Install & config mongoose
+* Setup entry model
+* Use entry model inside routes
