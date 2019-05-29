@@ -15,11 +15,29 @@ app.set("view engine", "ejs");
 
 var entrySchema = new mongoose.Schema({
 	name: String,
-	image: String
+	image: String,
+	description: String
 });
 
 var Entry = mongoose.model("Entry", entrySchema);
 
+
+// let list = [
+// 	{name: "One", image: "https://source.unsplash.com/VhpDAKvVA-Q", description: "description one"},
+// 	{name: "Two", image: "https://source.unsplash.com/uh0u8OH4zuE", description: "description two"},
+// 	{name: "Three", image: "https://source.unsplash.com/dqZGqFU4Usk", description: "description three"},
+// 	{name: "Four", image: "https://source.unsplash.com/07t5vZoW9n8", description: "description four"}
+// 	];
+
+// list.forEach(function(v){
+// 	Entry.create(v,function(err,entry){
+// 		if (err) {console.log(err)}
+// 		else {
+// 			console.log("Added");
+// 			console.log(entry);
+// 		}
+// 	});
+// });
 
 // ROUTES
 
@@ -31,7 +49,7 @@ app.get("/listings", function(req,res){
 	Entry.find({}, function(err,allEntries){
 		if (err) {console.log(err)}
 		else {
-			res.render("listings", {allEntries:allEntries});
+			res.render("index", {allEntries:allEntries});
 		}
 	});
 });
@@ -43,7 +61,8 @@ app.get("/listings/new", function(req,res){
 app.post("/listings", function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
-	var newListing = {name: name, image: image};
+	var desc = req.body.description;
+	var newListing = {name: name, image: image, description:desc};
 	Entry.create(newListing, function(err,newlyCreated){
 		if (err) {console.log(err)}
 		else {
@@ -51,6 +70,16 @@ app.post("/listings", function(req,res){
 		}
 	})
 });
+
+app.get(("/listings/:id"), function(req,res){
+	Entry.findById(req.params.id, function(err,foundEntry){
+		if (err) {console.log(err)}
+		else {
+			res.render("show", {entry:foundEntry});
+		}
+	});
+
+})
 
 
 app.listen(3000, process.env.IP, function(){

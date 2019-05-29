@@ -30,3 +30,7 @@
 * Install & config mongoose
 * Setup entry model
 * Use entry model inside routes
+
+###Show page
+* Add description to object model
+* Add shoe route/template

@@ -22,7 +22,10 @@
 					<img class="card-img-top" src="<%=listing.image%>">
 					<div class="card-body">
 						<h4 class="card-title text-center"><%= listing.name%></h4>
-						<p class="card-text">lorem</p>
+						<p class="card-text"><%=listing.description%></p>
+						<p>
+							<a href="/listings/<%=listing._id%>" class="btn btn-primary">Details</a> 
+						</p>
 					</div><!-- card-body -->
 				</div><!-- card -->
 			</div><!-- col -->
