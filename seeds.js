@@ -11,23 +11,31 @@ var list = [
 
 function seedDB(){
 	Listing.deleteMany({}, function(err){
-		if (err) {console.log(err)}
-		else {console.log("Cleared")};
-		list.forEach(function(listing){
-			Listing.create(listing,function(err,listing){
-				if (err) {console.log(err)}
-				else {
+		if (err) {
+			console.log(err)
+		} else {
+			Comment.deleteMany({}, (err) => {if (err) {console.log(err)}});
+		}
+		list.forEach(function(seed){
+			Listing.create(seed,function(err,listing){
+				if (err) {
+					console.log(err)
+				} else {
 					console.log("Added Listing");
-					// console.log(listing);
-					Comment.create({text: "comment", author:"author"}, function(err,comment){
-						if (err) {console.log(err)}
-						else {
-							listing.comments.push(comment);
-							listing.save();
-							console.log("Added Comment")
-						}
-					});
-				}
+					Comment.create(
+						{
+							text: "comment", 
+							author:"author"
+						}, function(err,comment){
+							if (err) {
+								console.log(err)
+							} else {
+								listing.comments.push(comment);
+								listing.save();
+								console.log("Added Comment")
+							}
+						});
+					}
 			});
 		});
 	});

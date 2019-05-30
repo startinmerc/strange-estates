@@ -3,5 +3,11 @@
 	<p><%=listing.name%></p>
 	<img src="<%=listing.image%>">
 	<p><%=listing.description%></p>
+	<ul>
+		<%listing.comments.forEach(function(comment){%>
+			<li><strong><%=comment.author%></strong>
+			 - <%=comment.text%></li>
+		<%})%>
+	</ul>
 	<%include partials/footer%>
 </div>

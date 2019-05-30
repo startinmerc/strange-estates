@@ -45,3 +45,7 @@
 ###Seed database
 * Add seeds.js
 * Run on server start
+
+###Add Comment model
+* Create model
+* Display on show page

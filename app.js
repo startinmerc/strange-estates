@@ -5,7 +5,7 @@ var express		 = require("express"),
 	Listing 	 = require("./models/listing"),
 	seedDB		 = require("./seeds");
 
-seedDB();
+
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -14,9 +14,7 @@ mongoose.connect("mongodb://localhost/strange_estates");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
-// SCHEMA
-
-
+seedDB();
 
 // ROUTES
 
@@ -51,7 +49,7 @@ app.post("/listings", function(req,res){
 });
 
 app.get(("/listings/:id"), function(req,res){
-	Listing.findById(req.params.id, function(err,foundListing){
+	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
 		if (err) {console.log(err)}
 		else {
 			res.render("show", {listing:foundListing});
