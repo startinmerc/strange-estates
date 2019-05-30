@@ -41,3 +41,7 @@
 
 ###Refactor
 * Create models directory
+
+###Seed database
+* Add seeds.js
+* Run on server start

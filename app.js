@@ -2,8 +2,10 @@ var express		 = require("express"),
 	app			 = express(),
 	bodyParser	 = require("body-parser"),
 	mongoose	 = require("mongoose"),
-	Listing 	 = require("./models/listing");
+	Listing 	 = require("./models/listing"),
+	seedDB		 = require("./seeds");
 
+seedDB();
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
