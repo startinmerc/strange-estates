@@ -49,3 +49,9 @@
 ###Add Comment model
 * Create model
 * Display on show page
+
+##V4
+
+###New Comment
+* Add new and create routes
+* Add new comment form

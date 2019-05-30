@@ -3,7 +3,8 @@ var express		 = require("express"),
 	bodyParser	 = require("body-parser"),
 	mongoose	 = require("mongoose"),
 	Listing 	 = require("./models/listing"),
-	seedDB		 = require("./seeds");
+	seedDB		 = require("./seeds"),
+	Comment 	 = require("./models/comment");
 
 
 mongoose.set('useNewUrlParser', true);
@@ -26,13 +27,13 @@ app.get("/listings", function(req,res){
 	Listing.find({}, function(err,allListings){
 		if (err) {console.log(err)}
 		else {
-			res.render("index", {allListings:allListings});
+			res.render("listings/index", {allListings:allListings});
 		}
 	});
 });
 
 app.get("/listings/new", function(req,res){
-	res.render("new");
+	res.render("listings/new");
 });
 
 app.post("/listings", function(req,res){
@@ -52,11 +53,36 @@ app.get(("/listings/:id"), function(req,res){
 	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
 		if (err) {console.log(err)}
 		else {
-			res.render("show", {listing:foundListing});
+			res.render("listings/show", {listing:foundListing});
 		}
 	});
+});
 
-})
+app.get("/listings/:id/comments/new", function(req,res){
+	Listing.findById(req.params.id, function(err,listing){
+		if (err) {console.log(err)}
+		else {
+			res.render("comments/new", {listing:listing});
+		}
+	})
+
+});
+
+app.post("/listings/:id/comments", function(req,res){
+	Listing.findById(req.params.id, function(err,listing){
+		if (err) {console.log(err); res.redirect("/listings");}
+		else {
+			Comment.create(req.body.comment, function(err,comment){
+				if (err) {console.log(err)}
+				else {
+					listing.comments.push(comment);
+					listing.save();
+					res.redirect("/listings/" + listing._id);
+				}
+			})
+		}
+	})
+});
 
 
 app.listen(3000, process.env.IP, function(){
