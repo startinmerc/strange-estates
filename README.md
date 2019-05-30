@@ -26,6 +26,8 @@
 * Add navbar to header
 * Style new listing form
 
+##V2
+
 ###Add Mongoose
 * Install & config mongoose
 * Setup entry model
@@ -34,3 +36,8 @@
 ###Show page
 * Add description to object model
 * Add shoe route/template
+
+##V3
+
+###Refactor
+* Create models directory
