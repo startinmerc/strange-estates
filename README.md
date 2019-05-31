@@ -55,3 +55,11 @@
 ###New Comment
 * Add new and create routes
 * Add new comment form
+
+##V5
+
+###Style show page
+* Add sidebar to show
+* Display comments
+* Bulk out seeds
+* Create CSS & link up

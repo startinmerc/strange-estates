@@ -14,6 +14,7 @@ mongoose.connect("mongodb://localhost/strange_estates");
 // mongoose.connect("mongodb+srv://STM:<password>@cluster0-c9k9l.mongodb.net/test?retryWrites=true")
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 seedDB();
 
