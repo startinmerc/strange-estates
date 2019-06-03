@@ -1,65 +1,71 @@
-#Strange Estates
+# Strange Estates
 
-###Initial setup
+### Initial setup
 * Add landing page
 * Add listings page to list all entries
  * Each listing has:
   * Name
   * Image
 
-###Layout & basic styling
+### Layout & basic styling
 * Create header & footer partials
 * Add in Bootstrap
 
-###Creating new listings
+### Creating new listings
 * Setup new listing POST route
 * Add in body-parser
 * Setup route to show form
 * Add basic form
 
 
-###Style listings page
+### Style listings page
 * Add better header
 * Make listings display in grid
 
-###Style Navbar + Form
+### Style Navbar + Form
 * Add navbar to header
 * Style new listing form
 
-##V2
+## V2
 
-###Add Mongoose
+### Add Mongoose
 * Install & config mongoose
 * Setup entry model
 * Use entry model inside routes
 
-###Show page
+### Show page
 * Add description to object model
 * Add shoe route/template
 
-##V3
+## V3
 
-###Refactor
+### Refactor
 * Create models directory
 
-###Seed database
+### Seed database
 * Add seeds.js
 * Run on server start
 
-###Add Comment model
+### Add Comment model
 * Create model
 * Display on show page
 
-##V4
+## V4
 
-###New Comment
+### New Comment
 * Add new and create routes
 * Add new comment form
 
-##V5
+## V5
 
-###Style show page
+### Style show page
 * Add sidebar to show
 * Display comments
 * Bulk out seeds
 * Create CSS & link up
+
+## V6
+
+### Add user model
+* Install auth packages
+* Define user model

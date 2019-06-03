@@ -1,10 +1,13 @@
-var express		 = require("express"),
-	app			 = express(),
-	bodyParser	 = require("body-parser"),
-	mongoose	 = require("mongoose"),
-	Listing 	 = require("./models/listing"),
-	seedDB		 = require("./seeds"),
-	Comment 	 = require("./models/comment");
+var express			= require("express"),
+	app				= express(),
+	bodyParser		= require("body-parser"),
+	mongoose		= require("mongoose"),
+	passport		= require("passport"),
+	LocalStrategy	= require("passport-local"),
+	Listing 		= require("./models/listing"),
+	seedDB			= require("./seeds"),
+	Comment 		= require("./models/comment"),
+	User			= require("./models/user");
 
 
 mongoose.set('useNewUrlParser', true);
