@@ -87,3 +87,8 @@
 ### Show/hide user nav links
 * Add navbar links
 * Show/hide as appropriate
+
+## V7
+
+### Refactor routes
+* Use Express router to refactor all routes

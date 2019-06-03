@@ -1,6 +1,6 @@
 {
   "name": "strange-estates",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "A product of Strange Industries",
   "main": "app.js",
   "scripts": {
@@ -8,6 +8,10 @@
   },
   "author": "STM",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/startinmerc/strange-estates.git"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^2.6.1",
