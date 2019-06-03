@@ -77,17 +77,16 @@ app.get(("/listings/:id"), function(req,res){
 	});
 });
 
-app.get("/listings/:id/comments/new", function(req,res){
+app.get("/listings/:id/comments/new", isLoggedIn, function(req,res){
 	Listing.findById(req.params.id, function(err,listing){
 		if (err) {console.log(err)}
 		else {
 			res.render("comments/new", {listing:listing});
 		}
-	})
-
+	});
 });
 
-app.post("/listings/:id/comments", function(req,res){
+app.post("/listings/:id/comments", isLoggedIn, function(req,res){
 	Listing.findById(req.params.id, function(err,listing){
 		if (err) {console.log(err); res.redirect("/listings");}
 		else {
@@ -126,6 +125,18 @@ app.post("/login", passport.authenticate("local", {
 	failureRedirect: "/login"
 	}), function(req,res){
 });
+
+app.get("/logout", function(req,res){
+	req.logout();
+	res.redirect("/listings");
+});
+
+function isLoggedIn(req,res,next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 app.listen(3000, process.env.IP, function(){
 	console.log("Server Running")

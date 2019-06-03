@@ -78,3 +78,8 @@
 ### Add user login
 * Add login routes
 * Add login template
+
+### Add logout, comment auth
+* Add logout route
+* Prevent comments if not signed in
+* Show/hide auth links
