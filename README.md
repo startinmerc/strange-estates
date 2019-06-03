@@ -92,3 +92,9 @@
 
 ### Refactor routes
 * Use Express router to refactor all routes
+
+## V8
+
+### Users & Comments
+* Associate users with comments
+* Save author's name to comments

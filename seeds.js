@@ -13,7 +13,8 @@ function seedDB(){
 	Listing.deleteMany({}, function(err){
 		if (err) {
 			console.log(err)
-		} else {
+		} 
+		else {
 			Comment.deleteMany({}, (err) => {if (err) {console.log(err)}});
 		}
 		list.forEach(function(seed){
