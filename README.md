@@ -98,3 +98,9 @@
 ### Users & Comments
 * Associate users with comments
 * Save author's name to comments
+
+## V9
+
+### Users & Listings
+* Prevent unauth users from creating listings
+* Save user to new listings
