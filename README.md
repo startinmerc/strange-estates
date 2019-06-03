@@ -69,3 +69,8 @@
 ### Add user model
 * Install auth packages
 * Define user model
+
+## Add user registration
+* Config Passport
+* Add register routes
+* Add register template
