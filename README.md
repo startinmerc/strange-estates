@@ -70,7 +70,11 @@
 * Install auth packages
 * Define user model
 
-## Add user registration
+### Add user registration
 * Config Passport
 * Add register routes
 * Add register template
+
+### Add user login
+* Add login routes
+* Add login template
