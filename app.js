@@ -35,6 +35,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req,res,next){
+	res.locals.currentUser = req.user;
+	next()
+});
+
 
 // ROUTES
 
@@ -43,6 +48,7 @@ app.get("/", function(req,res){
 });
 
 app.get("/listings", function(req,res){
+
 	Listing.find({}, function(err,allListings){
 		if (err) {console.log(err)}
 		else {

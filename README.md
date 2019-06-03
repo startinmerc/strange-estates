@@ -83,3 +83,7 @@
 * Add logout route
 * Prevent comments if not signed in
 * Show/hide auth links
+
+### Show/hide user nav links
+* Add navbar links
+* Show/hide as appropriate
