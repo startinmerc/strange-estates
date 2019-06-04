@@ -46,9 +46,9 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 // Show Route
 router.get(("/:id"), function(req,res){
 	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
-		if (err) {
+		if (err || !foundListing) {
 			req.flash("error", "Listing not found");
-			res.redirect("/listings");
+			res.redirect("back");
 		} else {
 			res.render("listings/show", {listing:foundListing});
 		}
@@ -58,7 +58,7 @@ router.get(("/:id"), function(req,res){
 // Edit route
 router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){
-		if (err) {
+		if (err || !foundListing) {
 			req.flash("error", "Listing not found");
 			res.redirect("back");
 		} else {
@@ -72,7 +72,7 @@ router.put("/:id", middleware.checkListingOwnership, function(req,res){
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
 		if (err) {
 			req.flash("error", "Database error");
-			res.redirect("/listings");
+			res.redirect("back");
 		} else {
 			req.flash("success", "Listing edited");
 			res.redirect("/listings/"+req.params.id);

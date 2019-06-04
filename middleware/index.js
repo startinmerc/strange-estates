@@ -6,7 +6,7 @@ var middlewateObj = {};
 middlewateObj.checkListingOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
 		Listing.findById(req.params.id, function(err,foundListing){
-			if (err) {
+			if (err || !foundListing) {
 				req.flash("error", "Comment not found");
 				res.redirect("back")}
 			else {
@@ -27,7 +27,7 @@ middlewateObj.checkListingOwnership = function(req,res,next){
 middlewateObj.checkCommentOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
 		Comment.findById(req.params.comment_id, function(err,foundComment){
-			if (err) {
+			if (err || !foundComment) {
 				req.flash("error", "Listing not found");
 				res.redirect("back")
 			}

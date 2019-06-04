@@ -44,20 +44,26 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 
 // Edit comment
 router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req,res){
-	Comment.findById(req.params.comment_id, function(err, foundComment){
-		if (err) {
-			req.flash("error", "Database error");
+	Listing.findById(req.params.id, function(err, foundListing){
+		if(err || !foundListing){
+			req.flash("error", "Listing not found");
 			res.redirect("back");
-		} else {
-			res.render("comments/edit", {listing_id: req.params.id, comment: foundComment});
 		}
-	});
+		Comment.findById(req.params.comment_id, function(err, foundComment){
+			if (err || !foundComment) {
+				req.flash("error", "Database error");
+				res.redirect("back");
+			} else {
+				res.render("comments/edit", {listing_id: req.params.id, comment: foundComment});
+			}
+		});
+	})
 });
 
 // Update comment
 router.put("/:comment_id", middleware.checkCommentOwnership, function(req,res){
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
-		if (err) {
+		if (err || !updatedComment) {
 			req.flash("error", "Database error");
 			res.redirect("back");
 		} else {
