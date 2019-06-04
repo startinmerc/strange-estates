@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var Listing = require("../models/listing");
 var Comment = require("../models/comment");
+var middleware = require("../middleware");
 
 // Index Route
 router.get("/", function(req,res){
@@ -15,12 +16,12 @@ router.get("/", function(req,res){
 
 
 // New Route
-router.get("/new", isLoggedIn, function(req,res){
+router.get("/new", middleware.isLoggedIn, function(req,res){
 	res.render("listings/new");
 });
 
 // Create Route
-router.post("/", isLoggedIn, function(req,res){
+router.post("/", middleware.isLoggedIn, function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var desc = req.body.description;
@@ -46,7 +47,7 @@ router.get(("/:id"), function(req,res){
 });
 
 // Edit route
-router.get("/:id/edit", checkOwnership, function(req,res){
+router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){
 		if (err) {res.redirect("back");}
 		else {res.render("listings/edit", {listing:foundListing})};
@@ -54,7 +55,7 @@ router.get("/:id/edit", checkOwnership, function(req,res){
 });
 
 // Update Route
-router.put("/:id", checkOwnership, function(req,res){
+router.put("/:id", middleware.checkListingOwnership, function(req,res){
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
 		if (err) {res.redirect("/listings")}
 		else {res.redirect("/listings/"+req.params.id);}
@@ -62,7 +63,7 @@ router.put("/:id", checkOwnership, function(req,res){
 });
 
 // Destroy route
-router.delete("/:id", checkOwnership, function(req, res){
+router.delete("/:id", middleware.checkListingOwnership, function(req, res){
     Listing.findByIdAndRemove(req.params.id, (err, removedListing) => {
         if (err) {
             console.log(err);
@@ -75,30 +76,5 @@ router.delete("/:id", checkOwnership, function(req, res){
         });
     })
 });
-
-// Middleware
-function isLoggedIn(req,res,next){
-	if(req.isAuthenticated()){
-		return next();
-	}
-	res.redirect("/login");
-}
-
-function checkOwnership(req,res,next){
-	if(req.isAuthenticated()){
-		Listing.findById(req.params.id, function(err,foundListing){
-			if (err) {res.redirect("back")}
-			else {
-				if (foundListing.author.id.equals(req.user.id)) {
-					next();
-				} else {
-					res.redirect("back");
-				}
-			}
-		});
-	} else {
-		res.redirect("back");
-	}
-}
 
 module.exports = router;

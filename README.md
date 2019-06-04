@@ -131,3 +131,8 @@
 ### Comment Auth
 * Auth edit/destroy routes
 * Hide/show routes
+
+## V11
+
+## Refactor
+* Refactor middleware
