@@ -45,15 +45,17 @@
 							<strong><%=comment.author.username%></strong>
 							<small class="text-muted">10 Days ago</small>
 							<p><%=comment.text%></p>
-							<a class="btn btn-warning" 
-							href="/listings/<%=listing._id%>/comments/<%=comment._id%>/edit">
-								Edit
-							</a>
-							<form class="d-inline" 
-							action="/listings/<%=listing._id%>/comments/<%=comment._id%>?_method=DELETE" 
-							method="POST">
-								<button class="btn btn-danger">Delete</button>
-							</form>
+							<%if(currentUser && comment.author.id.equals(currentUser._id)){%>
+								<a class="btn btn-warning" 
+								href="/listings/<%=listing._id%>/comments/<%=comment._id%>/edit">
+									Edit
+								</a>
+								<form class="d-inline" 
+								action="/listings/<%=listing._id%>/comments/<%=comment._id%>?_method=DELETE" 
+								method="POST">
+									<button class="btn btn-danger">Delete</button>
+								</form>
+							<%}%>
 						</li>
 					<%})%>
 				</ul>

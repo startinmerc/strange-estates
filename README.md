@@ -127,3 +127,7 @@
 
 ### Deleting comments
 * Add destroy route & button
+
+### Comment Auth
+* Auth edit/destroy routes
+* Hide/show routes
