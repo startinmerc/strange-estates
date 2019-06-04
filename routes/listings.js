@@ -46,15 +46,15 @@ router.get(("/:id"), function(req,res){
 });
 
 // Edit route
-router.get("/:id/edit", function(req,res){
+router.get("/:id/edit", checkOwnership, function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){
-		if (err) {console.log(err)}
-		else {res.render("listings/edit", {listing:foundListing});}
+		if (err) {res.redirect("back");}
+		else {res.render("listings/edit", {listing:foundListing})};
 	});
 });
 
 // Update Route
-router.put("/:id", function(req,res){
+router.put("/:id", checkOwnership, function(req,res){
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
 		if (err) {res.redirect("/listings")}
 		else {res.redirect("/listings/"+req.params.id);}
@@ -82,6 +82,23 @@ function isLoggedIn(req,res,next){
 		return next();
 	}
 	res.redirect("/login");
+}
+
+function checkOwnership(req,res,next){
+	if(req.isAuthenticated()){
+		Listing.findById(req.params.id, function(err,foundListing){
+			if (err) {res.redirect("back")}
+			else {
+				if (foundListing.author.id.equals(req.user.id)) {
+					next();
+				} else {
+					res.redirect("back");
+				}
+			}
+		});
+	} else {
+		res.redirect("back");
+	}
 }
 
 module.exports = router;

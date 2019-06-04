@@ -23,10 +23,14 @@
 					<p class="text-muted">
 						Listed by <%=listing.author.username%>
 					</p>
+					<%if(currentUser && listing.author.id.equals(currentUser._id)){%>
 					<a class="btn btn-warning" href="/listings/<%=listing._id%>/edit">Edit</a>
-					<form class="d-inline" action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
+					<form class="d-inline" 
+					action="/listings/<%=listing._id%>?_method=DELETE" 
+					method="POST">
 						<button class="btn btn-danger">Delete</button>
 					</form>
+					<%}%>
 				</div>
 			</div>
 
