@@ -7,8 +7,10 @@ var middleware = require("../middleware");
 // Index Route
 router.get("/", function(req,res){
 	Listing.find({}, function(err,allListings){
-		if (err) {console.log(err)}
-		else {
+		if (err) {
+			req.flash("error", "Database error");
+			res.redirect("/");
+		} else {
 			res.render("listings/index", {allListings:allListings});
 		}
 	});
@@ -31,50 +33,69 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 	};
 	var newListing = {name: name, image: image, description:desc, author:author};
 	Listing.create(newListing, function(err,newListing){
-		if (err) {console.log(err)}
-		else {
+		if (err) {
+			req.flash("error", "Database error");
+			res.redirect("/listings");
+		} else {
+			req.flash("success", "Listing created");
 			res.redirect("/listings");
 		}
-	})
+	});
 });
 
 // Show Route
 router.get(("/:id"), function(req,res){
 	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
-		if (err) {console.log(err)}
-		else {res.render("listings/show", {listing:foundListing});}
+		if (err) {
+			req.flash("error", "Listing not found");
+			res.redirect("/listings");
+		} else {
+			res.render("listings/show", {listing:foundListing});
+		}
 	});
 });
 
 // Edit route
 router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){
-		if (err) {res.redirect("back");}
-		else {res.render("listings/edit", {listing:foundListing})};
+		if (err) {
+			req.flash("error", "Listing not found");
+			res.redirect("back");
+		} else {
+			res.render("listings/edit", {listing:foundListing});
+		}
 	});
 });
 
 // Update Route
 router.put("/:id", middleware.checkListingOwnership, function(req,res){
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
-		if (err) {res.redirect("/listings")}
-		else {res.redirect("/listings/"+req.params.id);}
+		if (err) {
+			req.flash("error", "Database error");
+			res.redirect("/listings");
+		} else {
+			req.flash("success", "Listing edited");
+			res.redirect("/listings/"+req.params.id);
+		}
 	});
 });
 
 // Destroy route
 router.delete("/:id", middleware.checkListingOwnership, function(req, res){
-    Listing.findByIdAndRemove(req.params.id, (err, removedListing) => {
-        if (err) {
-            console.log(err);
-        }
-        Comment.deleteMany( {_id: { $in: removedListing.comments } }, (err) => {
-            if (err) {
-                console.log(err);
-            }
-            res.redirect("/listings");
-        });
-    })
+    Listing.findByIdAndRemove(req.params.id, function(err, removedListing){
+		if (err) {
+			req.flash("error", "Database error");
+			res.redirect("/listings");
+        } else {
+	        Comment.deleteMany( {_id: { $in: removedListing.comments } }, function(err){
+	            if (err) {
+	                console.log(err);
+	            }
+	            req.flash("success", "Listing deleted");
+	            res.redirect("/listings");
+	        });
+	    }
+    });
 });
 
 module.exports = router;

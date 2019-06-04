@@ -136,3 +136,7 @@
 
 ## Refactor
 * Refactor middleware
+
+## Add Flash
+* Install & config flash
+* Add alerts to header
