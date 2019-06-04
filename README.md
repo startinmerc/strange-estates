@@ -104,3 +104,11 @@
 ### Users & Listings
 * Prevent unauth users from creating listings
 * Save user to new listings
+
+## V10
+
+### Editing Listings
+* Add Method-Override
+* Add Edit riute
+* Link to edut page
+* Add update route

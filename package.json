@@ -1,6 +1,6 @@
 {
   "name": "strange-estates",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "description": "A product of Strange Industries",
   "main": "app.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
+    "method-override": "^3.0.0",
     "mongoose": "^5.5.11",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

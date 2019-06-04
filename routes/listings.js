@@ -47,6 +47,26 @@ router.get(("/:id"), function(req,res){
 	});
 });
 
+// Edit route
+router.get("/:id/edit", function(req,res){
+	Listing.findById(req.params.id, function(err,foundListing){
+		if (err) {console.log(err)}
+			else {
+				res.render("listings/edit", {listing:foundListing});
+			}
+	});
+});
+
+// Update Route
+router.put("/:id", function(req,res){
+	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
+		if (err) {res.redirect("/listings")}
+			else {
+				res.redirect("/listings/"+req.params.id);
+			}
+	});
+});
+
 // Middleware
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
