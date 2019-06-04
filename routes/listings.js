@@ -62,7 +62,7 @@ router.put("/:id", checkOwnership, function(req,res){
 });
 
 // Destroy route
-router.delete("/:id", checkOwnership, (req, res) => {
+router.delete("/:id", checkOwnership, function(req, res){
     Listing.findByIdAndRemove(req.params.id, (err, removedListing) => {
         if (err) {
             console.log(err);

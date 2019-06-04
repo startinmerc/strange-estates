@@ -54,6 +54,16 @@ router.put("/:comment_id", function(req,res){
 	})
 });
 
+// Destroy route
+router.delete("/:comment_id", function(req,res){
+	Comment.findByIdAndRemove(req.params.comment_id, function(err){
+		if (err) {console.log(err)}
+		else {
+			res.redirect("/listings/" + req.params.id)
+		}
+	})
+})
+
 // Middleware
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){

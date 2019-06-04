@@ -124,3 +124,6 @@
 ### Editing Comments
 * Add edit route & button
 * Add update route
+
+### Deleting comments
+* Add destroy route & button
