@@ -116,3 +116,7 @@
 ### Destroy route
 * Add destroy route
 * Add link to show page
+
+### Authorisation
+* Restrict users to u/d own listings
+* Hide/show routs as appropriate

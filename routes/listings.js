@@ -1,6 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var Listing = require("../models/listing");
+var Comment = require("../models/comment");
 
 // Index Route
 router.get("/", function(req,res){
@@ -31,7 +32,6 @@ router.post("/", isLoggedIn, function(req,res){
 	Listing.create(newListing, function(err,newListing){
 		if (err) {console.log(err)}
 		else {
-			console.log(newListing);
 			res.redirect("/listings");
 		}
 	})
@@ -62,11 +62,18 @@ router.put("/:id", function(req,res){
 });
 
 // Destroy route
-router.delete("/:id", function(req,res){
-	Listing.findByIdAndRemove(req.params.id, function(err){
-		if (err) {res.redirect("/listings");}
-		else {res.redirect("/listings");}
-	})
+router.delete("/:id", (req, res) => {
+    Listing.findByIdAndRemove(req.params.id, (err, removedListing) => {
+        if (err) {
+            console.log(err);
+        }
+        Comment.deleteMany( {_id: { $in: removedListing.comments } }, (err) => {
+            if (err) {
+                console.log(err);
+            }
+            res.redirect("/listings");
+        });
+    })
 });
 
 // Middleware
