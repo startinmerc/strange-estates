@@ -120,3 +120,7 @@
 ### Authorisation
 * Restrict users to u/d own listings
 * Hide/show routs as appropriate
+
+### Editing Comments
+* Add edit route & button
+* Add update route

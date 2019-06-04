@@ -34,6 +34,26 @@ router.post("/", isLoggedIn, function(req,res){
 	})
 });
 
+// Edit comment
+router.get("/:comment_id/edit", function(req,res){
+	Comment.findById(req.params.comment_id, function(err, foundComment){
+		if (err) {console.log(err)}
+		else {
+			res.render("comments/edit", {listing_id: req.params.id, comment: foundComment});
+		}
+	});
+});
+
+// Update comment
+router.put("/:comment_id", function(req,res){
+	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+		if (err) {console.log(err)}
+		else {
+			res.redirect("/listings/" + req.params.id)
+		}
+	})
+});
+
 // Middleware
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
