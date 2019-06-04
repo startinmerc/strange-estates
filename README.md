@@ -112,3 +112,7 @@
 * Add Edit riute
 * Link to edut page
 * Add update route
+
+### Destroy route
+* Add destroy route
+* Add link to show page

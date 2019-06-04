@@ -41,9 +41,7 @@ router.post("/", isLoggedIn, function(req,res){
 router.get(("/:id"), function(req,res){
 	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
 		if (err) {console.log(err)}
-		else {
-			res.render("listings/show", {listing:foundListing});
-		}
+		else {res.render("listings/show", {listing:foundListing});}
 	});
 });
 
@@ -51,9 +49,7 @@ router.get(("/:id"), function(req,res){
 router.get("/:id/edit", function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){
 		if (err) {console.log(err)}
-			else {
-				res.render("listings/edit", {listing:foundListing});
-			}
+		else {res.render("listings/edit", {listing:foundListing});}
 	});
 });
 
@@ -61,10 +57,16 @@ router.get("/:id/edit", function(req,res){
 router.put("/:id", function(req,res){
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
 		if (err) {res.redirect("/listings")}
-			else {
-				res.redirect("/listings/"+req.params.id);
-			}
+		else {res.redirect("/listings/"+req.params.id);}
 	});
+});
+
+// Destroy route
+router.delete("/:id", function(req,res){
+	Listing.findByIdAndRemove(req.params.id, function(err){
+		if (err) {res.redirect("/listings");}
+		else {res.redirect("/listings");}
+	})
 });
 
 // Middleware
