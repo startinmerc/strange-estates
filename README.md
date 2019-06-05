@@ -140,3 +140,7 @@
 ## Add Flash
 * Install & config flash
 * Add alerts to header
+
+## Add landing page
+* Add css sheet
+* Add html
