@@ -134,13 +134,19 @@
 
 ## V11
 
-## Refactor
+### Refactor
 * Refactor middleware
 
-## Add Flash
+### Add Flash
 * Install & config flash
 * Add alerts to header
 
-## Add landing page
+### Add landing page
 * Add css sheet
 * Add html
+
+## V12
+
+### Add listing price
+* Add price to listing model
+* Add to routes

@@ -31,7 +31,8 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 		id: req.user._id,
 		username: req.user.username
 	};
-	var newListing = {name: name, image: image, description:desc, author:author};
+	var price = req.body.price;
+	var newListing = {name: name, price:price, image: image, description:desc, author:author};
 	Listing.create(newListing, function(err,newListing){
 		if (err) {
 			req.flash("error", "Database error");
