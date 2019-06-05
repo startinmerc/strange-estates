@@ -1,0 +1,57 @@
+body {
+	background-color: #000;
+}
+
+.landing-container {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+}
+
+.landing-background {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	background-image: url(https://images.unsplash.com/photo-1417816491410-d61e1546e539?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=39c36bfe6e55cbbfef1112205bbca5fe&auto=format&fit=crop&w=1267&q=80);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	z-index: -1;
+}
+
+.header, .sub {
+	width: 40%;
+	text-shadow: 0 0 10px #FFF;
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	mix-blend-mode: difference;
+	height: 100vh;
+	width: 100vw;
+}
+
+rect {
+	fill: #FFF;
+	/*animation: rect 8s linear infinite;*/
+}
+
+@keyframes rect {
+	0% {transform: translateX(0) scaleX(1);}
+	50% {transform: translateX(10vw) scaleX(1);}
+	70% {transform: translateX(-10vw) scaleX(0.2);}
+	90% {transform: translateX(30vw) scaleX(1.5);}
+	100% {transform: translateX(0) scaleX(1);}
+}
