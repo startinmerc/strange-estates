@@ -150,3 +150,9 @@
 ### Add listing price
 * Add price to listing model
 * Add to routes
+
+### Add admin user
+* Add to model
+* Add to register
+* Show on header
+* Incorporate into routes

@@ -10,7 +10,7 @@ middlewateObj.checkListingOwnership = function(req,res,next){
 				req.flash("error", "Comment not found");
 				res.redirect("back")}
 			else {
-				if (foundListing.author.id.equals(req.user.id)) {
+				if (foundListing.author.id.equals(req.user.id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash("Permission denied");
@@ -32,7 +32,7 @@ middlewateObj.checkCommentOwnership = function(req,res,next){
 				res.redirect("back")
 			}
 			else {
-				if (foundComment.author.id.equals(req.user.id)) {
+				if (foundComment.author.id.equals(req.user.id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash("Permission denied");
@@ -52,6 +52,14 @@ middlewateObj.isLoggedIn = function(req,res,next){
 	}
 	req.flash("error", "Please log in first");
 	res.redirect("/login");
+}
+
+middlewateObj.isLoggedInAdmin = function(req,res,next){
+	if(req.isAuthenticated() && req.user.isAdmin){
+		return next();
+	}
+	req.flash("error", "Please log in as admin first");
+	res.redirect("back");
 }
 
 module.exports = middlewateObj

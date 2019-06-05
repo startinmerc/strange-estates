@@ -18,12 +18,12 @@ router.get("/", function(req,res){
 
 
 // New Route
-router.get("/new", middleware.isLoggedIn, function(req,res){
+router.get("/new", middleware.isLoggedInAdmin, function(req,res){
 	res.render("listings/new");
 });
 
 // Create Route
-router.post("/", middleware.isLoggedIn, function(req,res){
+router.post("/", middleware.isLoggedInAdmin, function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var desc = req.body.description;

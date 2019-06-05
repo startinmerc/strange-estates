@@ -23,7 +23,7 @@
 					<p class="text-muted">
 						Listed by <%=listing.author.username%>
 					</p>
-					<%if(currentUser && listing.author.id.equals(currentUser._id)){%>
+					<%if(currentUser && listing.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
 					<a class="btn btn-warning" href="/listings/<%=listing._id%>/edit">Edit</a>
 					<form class="d-inline" 
 					action="/listings/<%=listing._id%>?_method=DELETE" 
@@ -45,7 +45,7 @@
 							<strong><%=comment.author.username%></strong>
 							<small class="text-muted">10 Days ago</small>
 							<p><%=comment.text%></p>
-							<%if(currentUser && comment.author.id.equals(currentUser._id)){%>
+							<%if(currentUser && comment.author.id.equals(currentUser._id || currentUser && currentUser.isAdmin)){%>
 								<a class="btn btn-warning" 
 								href="/listings/<%=listing._id%>/comments/<%=comment._id%>/edit">
 									Edit
