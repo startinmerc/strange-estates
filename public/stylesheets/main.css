@@ -1,8 +1,53 @@
-.comment-header {
-	margin-bottom: 0;
+/*GLOBALS*/
+
+body {
+	min-height: 100vh;
 }
 
-.footer {
-	height: 3rem;
-	background-color: #f8f9fa;
+.navbar-collapse {
+	flex-grow: 0;
+}
+
+/*INDEX PAGE*/
+
+.jumbotron::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 34.2%;
+	z-index: -1;
+	background: url("https://source.unsplash.com/whqHBbiC7tY");
+	background-color: #CECDC9;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.jumbotron {
+	background-color: #e9ecefBF;
+	border-radius: .3rem .3rem 0.0rem .0rem;
+}
+
+.index-card img {
+	transition: opacity 300ms ease-in-out, filter 300ms ease-in-out;
+}
+
+.index-card img:hover{
+	opacity: 0.6;
+	filter: grayscale(100%);
+}
+
+@media (max-width: 576px) {
+
+.jumbotron::before {
+	height: 30.6%
+}
+
+}
+
+/*COMMENTS*/
+
+.comment-header {
+	margin-bottom: 0;
 }

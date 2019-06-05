@@ -156,3 +156,12 @@
 * Add to register
 * Show on header
 * Incorporate into routes
+
+### Style Partials
+* Add styles to footer
+* Add JS, jQuery links to footer
+* Add collapse to navbar
+
+### Listing Page Styling
+* Add background to jumbotron & change border radius (inc. media breakpoints)
+* 
