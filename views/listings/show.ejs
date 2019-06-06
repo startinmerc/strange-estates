@@ -4,9 +4,15 @@
 		<div class="col-md-3">
 			<p class="display-4">Strange Estates</p>
 			<ul class="list-group">
-				<li class="list-group-item active">Info 1</li>
-				<li class="list-group-item">Info 2</li>
-				<li class="list-group-item">Info 3</li>
+				<a class="list-group-item list-group-item-action active"
+				href="/listings/<%=listing.id%>">
+					Overview</a>
+				<a class="list-group-item list-group-item-action"
+				href="/listings/<%=listing.id%>/gallery">
+					Gallery</a>
+				<a class="list-group-item list-group-item-action"
+				href="/listings/<%=listing.id%>/features">
+				Features</a>
 			</ul>
 		</div>
 		<div class="col-md-9">

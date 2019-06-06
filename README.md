@@ -170,3 +170,10 @@
 ### Style landing page
 * Add GSAP
 * Animate background images
+
+## V13
+
+### Add gallery to show page
+* Set up show route via listing show page
+* Add to listing model
+* Add page

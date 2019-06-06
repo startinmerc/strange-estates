@@ -44,7 +44,7 @@ router.post("/", middleware.isLoggedInAdmin, function(req,res){
 	});
 });
 
-// Show Route
+// Show Route - Main
 router.get(("/:id"), function(req,res){
 	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
 		if (err || !foundListing) {
@@ -52,6 +52,18 @@ router.get(("/:id"), function(req,res){
 			res.redirect("back");
 		} else {
 			res.render("listings/show", {listing:foundListing});
+		}
+	});
+});
+
+// Show Route - Gallery
+router.get(("/:id/gallery"), function(req,res){
+	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+		if (err || !foundListing) {
+			req.flash("error", "Listing not found");
+			res.redirect("back");
+		} else {
+			res.render("listings/show-gallery", {listing:foundListing});
 		}
 	});
 });
