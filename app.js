@@ -70,6 +70,11 @@ app.use((req,res,next) => {
 app.get("/", (req,res) => {
 	res.render("landing");
 });
+
+app.get("/about", (req,res) => {
+	res.render("about");
+});
+
 app.use("/", authRoutes);
 app.use("/listings/:id/comments", commentRoutes);
 app.use("/listings", listingRoutes);
