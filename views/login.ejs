@@ -2,20 +2,21 @@
 
 <div class="container">
 	<div class="row mt-3">
-		<h1 class="mx-auto">Login</h1>
+		<h1 class="mx-auto display-4">Log In</h1>
 	</div>
 	<div class="row">
-		<div class="w-25 mx-auto mt-2">
+		<div class="col-lg-6 mx-auto mt-2">
 			<form action="/login" method="post">
 				<div class="form-group">
 					<input class="form-control" type="text" 
-					name="username" placeholder="username">
-				
-					<input class="form-control" type="password" 
-					name="password" placeholder="password">
+					name="username" placeholder="Username">
 				</div>
 				<div class="form-group">
-					<input class="btn btn-primary btn-block" type="submit" value="login">
+					<input class="form-control" type="password" 
+					name="password" placeholder="Password">
+				</div>
+				<div class="form-group">
+					<input class="btn btn-primary btn-block" type="submit" value="Log In">
 				</div>
 			</form>
 		</div>

@@ -10,7 +10,7 @@
 				<a class="list-group-item list-group-item-action"
 				href="/listings/<%=listing.id%>/gallery">
 					Gallery</a>
-				<a class="list-group-item list-group-item-action"
+				<a class="list-group-item list-group-item-action active"
 				href="/listings/<%=listing.id%>/features active">
 				Features</a>
 			</ul>
@@ -22,13 +22,15 @@
 					<div class="card-title d-flex justify-content-between align-items-center">
 						<h4><%=listing.name%></h4>
 					</div>
-					<p class="card-text">
-						<ul class="list-group">
-							<%listing.features.forEach((feature) => {%>
-								<li class="list-group-item text-center"><%=feature%></li>
-							<%});%>
-						</ul>
-					</p>
+					<div class="container">
+						<div class="row">
+							<ul class="list-group col-md-12">
+								<%listing.features.forEach((feature) => {%>
+									<li class="list-group-item text-center"><%=feature%></li>
+								<%});%>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

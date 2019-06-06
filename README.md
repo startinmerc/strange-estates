@@ -182,3 +182,10 @@
 * Set route
 * Add page
 * Add to model
+
+### Further Styling
+* Change colours - brand, active, buttons, body
+* Change fonts - display, body
+* Tweak layout in response to font changes
+* Add JS to determine body size after image load, make footer sticky if needed
+* Minor cosmetic tweaks
