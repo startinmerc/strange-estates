@@ -177,3 +177,8 @@
 * Set up show route via listing show page
 * Add to listing model
 * Add page
+
+### Add features
+* Set route
+* Add page
+* Add to model

@@ -68,6 +68,18 @@ router.get(("/:id/gallery"), function(req,res){
 	});
 });
 
+// Show Route - Features
+router.get(("/:id/features"), function(req,res){
+	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+		if (err || !foundListing) {
+			req.flash("error", "Listing not found");
+			res.redirect("back");
+		} else {
+			res.render("listings/show-features", {listing:foundListing});
+		}
+	});
+});
+
 // Edit route
 router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 	Listing.findById(req.params.id, function(err,foundListing){

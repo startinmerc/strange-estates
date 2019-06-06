@@ -19,7 +19,8 @@ var listingSchema = new mongoose.Schema({
 		},
 		username: String
 	},
-	gallery: []
+	gallery: [],
+	features: []
 });
 
 module.exports = mongoose.model("Listing", listingSchema);
