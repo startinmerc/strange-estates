@@ -166,3 +166,7 @@
 * Add background to jumbotron & change border radius (inc. media breakpoints)
 * Style buttons
 * Make images links & use hover transitions
+
+### Style landing page
+* Add GSAP
+* Animate background images
