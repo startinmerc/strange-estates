@@ -1,4 +1,6 @@
-var express			= require("express"),
+// ======================VARIABLES======================
+
+const express		= require("express"),
 	app				= express(),
 	bodyParser		= require("body-parser"),
 	mongoose		= require("mongoose"),
@@ -6,28 +8,35 @@ var express			= require("express"),
 	LocalStrategy	= require("passport-local"),
 	methodOverride 	= require("method-override"),
 	flash			= require("connect-flash"),
-	Listing 		= require("./models/listing"),
-	seedDB			= require("./seeds"),
-	Comment 		= require("./models/comment"),
-	User			= require("./models/user");
 
-var commentRoutes	= require("./routes/comments"),
+	Comment 		= require("./models/comment"),
+	User			= require("./models/user"),
+	Listing 		= require("./models/listing"),
+
+	commentRoutes	= require("./routes/comments"),
 	listingRoutes	= require("./routes/listings"),
-	authRoutes 		= require("./routes/index");
+	authRoutes 		= require("./routes/index"),
+
+	seedDB			= require("./seeds");
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect("mongodb://localhost/strange_estates");
+
+// =====================USING NPMs======================
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 
+// =====================SEEDING DB======================
+
 seedDB();
 
-// Passport
+// ======================PASSPORT=======================
 
 app.use(require("express-session")({
 	secret: "cats-with-thumbs",
@@ -41,22 +50,28 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req,res,next){
+app.use((req,res,next) => {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
 	next();
 });
 
-app.get("/", function(req,res){
+// =======================ROUTES========================
+
+app.get("/", (req,res) => {
 	res.render("landing");
 });
-
-// Requiring routes
 app.use("/", authRoutes);
 app.use("/listings/:id/comments", commentRoutes);
 app.use("/listings", listingRoutes);
 
-app.listen(3000, process.env.IP, function(){
-	console.log("Server Running")
+// ====================SERVER LISTEN====================
+
+// app.listen(3000, process.env.IP, () => {
+// 	console.log("Server Running")
+// });
+
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Server Running");
 });
