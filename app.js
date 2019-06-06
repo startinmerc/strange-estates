@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // ======================VARIABLES======================
 
 const express		= require("express"),
@@ -22,7 +24,13 @@ const express		= require("express"),
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost/strange_estates");
+// mongoose.connect("mongodb://localhost/strange_estates");
+mongoose.connect("mongodb+srv://STM:"+process.env.STM+"@cluster0-c9k9l.mongodb.net/test?retryWrites=true&w=majority")
+.then(()=> {
+	console.log("CONNECTED");
+}).catch(err => {
+	console.log(err.message);
+});
 
 // =====================USING NPMs======================
 
