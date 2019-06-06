@@ -19,25 +19,51 @@
 	<%}%>
 </div>
 
+<ul class="landing-background">
+	<li class="background background-regular"></li>
+	<li class="background background-red"></li>
+	<li class="background background-blue"></li>
+</ul>
+
 <div class="landing-container">
-	<div class="landing-background">
-<!-- 		<svg viewbox="0 0 100 100">
-			<rect x="20" width="1" height="100"/>
-			<rect x="5" y="10" width="3" height="10"/>
-			<rect x="70" width="1" height="100"/>
-			<rect x="40" y="60" width="50" height="1"/>
-		</svg> -->
-	</div>
 	<div class="header text-center">
 		<h1 class="display-4">Welcome to</h1>
 		<h1 class="display-1">Strange Estates</h1>
 	</div>
 	<div class="sub text-center pb-2">
 		<h3 class="font-weight-light">Specialist letting agency</h3>
-		<a class="btn btn-lg btn-primary" href="/listings">View Listings</a>
+		<a class="btn btn-lg btn-dark" href="/listings">View Listings</a>
 	</div>
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+<script type="text/javascript">
+	TweenMax.to(".landing-background li:nth-child(2)", 3, {
+		x: 50,
+		y: 5,
+		ease: RoughEase.ease.config({
+			template:  Power0.easeNone,
+			strength: 1,
+			points: 20,
+			taper: "none",
+			randomize:  true,
+			clamp: false}),
+		repeat: -1,
+		yoyo: true,
+		repeatDelay: 3,
+		delay: 3
+	});
+
+	TweenMax.to(".landing-background li:nth-child(3)", 1.5, {
+		skewX: 2,
+		ease: Power3.easeIn,
+		repeat: -1,
+		yoyo: true,
+		repeatDelay: 1.5,
+		delay: 1.5
+	});
+</script>
 </body>
 </html>
