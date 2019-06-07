@@ -80,6 +80,12 @@ body {
 }
 
 /*ABOUT PAGE*/
+
+.profile-photo {
+	max-height: 150px;
+	max-height: 150px;
+}
+
 @media (max-width: 766px) {
 	h1.display-3 {
 		text-align: center;

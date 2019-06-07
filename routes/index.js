@@ -3,6 +3,24 @@ var router  = express.Router();
 var User = require("../models/user");
 var passport = require("passport");
 
+// Landing Page
+router.get("/", (req,res) => {
+	res.render("landing");
+});
+
+// About Page
+router.get("/about", (req,res) => {
+	User.find({isAdmin: true}, (err,admins) => {
+		if (err) {
+			req.flash("error", "Database error");
+			res.redirect("back");
+		} else {
+			res.render("about", {admins: admins});
+		}
+	});
+});
+
+
 // Register
 router.get("/register", function(req,res){
 	res.render("register");

@@ -17,7 +17,7 @@ const express		= require("express"),
 
 	commentRoutes	= require("./routes/comments"),
 	listingRoutes	= require("./routes/listings"),
-	authRoutes 		= require("./routes/index"),
+	indexRoutes		= require("./routes/index"),
 
 	seedDB			= require("./seeds");
 
@@ -67,15 +67,7 @@ app.use((req,res,next) => {
 
 // =======================ROUTES========================
 
-app.get("/", (req,res) => {
-	res.render("landing");
-});
-
-app.get("/about", (req,res) => {
-	res.render("about");
-});
-
-app.use("/", authRoutes);
+app.use("/", indexRoutes);
 app.use("/listings/:id/comments", commentRoutes);
 app.use("/listings", listingRoutes);
 
