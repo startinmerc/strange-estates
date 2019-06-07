@@ -1,191 +1,219 @@
 # Strange Estates
+![Landing page preview](https://i.imgur.com/aI5K5yl.gif)
+## [Landing Page](https://floating-shore-92463.herokuapp.com/)
 
-### Initial setup
+#### A full-stack RESTful site built on:
+
+| Bootstrap | Node.js | Express.js |
+| --------- |---------|------------|
+| Mongoose  | MongoDB | Custom CSS |
+| GSAP      | jQuery  | Heroku     |
+
+The site is a heavily expanded and customised version of a coursework project.
+It uses RESTful routing on a Node.js server on Heroku to render a Bootstrap 4 based web app,
+styled using CSS, JavaScript libraries such as jQuery and GSAP, and API calls for image sourcing.
+
+This is an ongoing project, and as such features will change and improve over time.
+
+Version logs for the entire project are below...
+
+---
+
+## Version Logs
+### V1
+
+#### Initial setup
 * Add landing page
 * Add listings page to list all entries
  * Each listing has:
   * Name
   * Image
 
-### Layout & basic styling
+#### Layout & basic styling
 * Create header & footer partials
 * Add in Bootstrap
 
-### Creating new listings
+#### Creating new listings
 * Setup new listing POST route
 * Add in body-parser
 * Setup route to show form
 * Add basic form
 
 
-### Style listings page
+#### Style listings page
 * Add better header
 * Make listings display in grid
 
-### Style Navbar + Form
+#### Style Navbar + Form
 * Add navbar to header
 * Style new listing form
 
-## V2
+### V2
 
-### Add Mongoose
+#### Add Mongoose
 * Install & config mongoose
 * Setup entry model
 * Use entry model inside routes
 
-### Show page
+#### Show page
 * Add description to object model
 * Add shoe route/template
 
-## V3
+### V3
 
-### Refactor
+#### Refactor
 * Create models directory
 
-### Seed database
+#### Seed database
 * Add seeds.js
 * Run on server start
 
-### Add Comment model
+#### Add Comment model
 * Create model
 * Display on show page
 
-## V4
+### V4
 
-### New Comment
+#### New Comment
 * Add new and create routes
 * Add new comment form
 
-## V5
+### V5
 
-### Style show page
+#### Style show page
 * Add sidebar to show
 * Display comments
 * Bulk out seeds
 * Create CSS & link up
 
-## V6
+### V6
 
-### Add user model
+#### Add user model
 * Install auth packages
 * Define user model
 
-### Add user registration
+#### Add user registration
 * Config Passport
 * Add register routes
 * Add register template
 
-### Add user login
+#### Add user login
 * Add login routes
 * Add login template
 
-### Add logout, comment auth
+#### Add logout, comment auth
 * Add logout route
 * Prevent comments if not signed in
 * Show/hide auth links
 
-### Show/hide user nav links
+#### Show/hide user nav links
 * Add navbar links
 * Show/hide as appropriate
 
-## V7
+### V7
 
-### Refactor routes
+#### Refactor routes
 * Use Express router to refactor all routes
 
-## V8
+### V8
 
-### Users & Comments
+#### Users & Comments
 * Associate users with comments
 * Save author's name to comments
 
-## V9
+### V9
 
-### Users & Listings
+#### Users & Listings
 * Prevent unauth users from creating listings
 * Save user to new listings
 
-## V10
+### V10
 
-### Editing Listings
+#### Editing Listings
 * Add Method-Override
 * Add Edit riute
 * Link to edut page
 * Add update route
 
-### Destroy route
+#### Destroy route
 * Add destroy route
 * Add link to show page
 
-### Authorisation
+#### Authorisation
 * Restrict users to u/d own listings
 * Hide/show routs as appropriate
 
-### Editing Comments
+#### Editing Comments
 * Add edit route & button
 * Add update route
 
-### Deleting comments
+#### Deleting comments
 * Add destroy route & button
 
-### Comment Auth
+#### Comment Auth
 * Auth edit/destroy routes
 * Hide/show routes
 
-## V11
+### V11
 
-### Refactor
+#### Refactor
 * Refactor middleware
 
-### Add Flash
+#### Add Flash
 * Install & config flash
 * Add alerts to header
 
-### Add landing page
+#### Add landing page
 * Add css sheet
 * Add html
 
-## V12
+### V12
 
-### Add listing price
+#### Add listing price
 * Add price to listing model
 * Add to routes
 
-### Add admin user
+#### Add admin user
 * Add to model
 * Add to register
 * Show on header
 * Incorporate into routes
 
-### Style Partials
+#### Style Partials
 * Add styles to footer
 * Add JS, jQuery links to footer
 * Add collapse to navbar
 
-### Listing Page Styling
+#### Listing Page Styling
 * Add background to jumbotron & change border radius (inc. media breakpoints)
 * Style buttons
 * Make images links & use hover transitions
 
-### Style landing page
+#### Style landing page
 * Add GSAP
 * Animate background images
 
-## V13
+### V13
 
-### Add gallery to show page
+#### Add gallery to show page
 * Set up show route via listing show page
 * Add to listing model
 * Add page
 
-### Add features
+#### Add features
 * Set route
 * Add page
 * Add to model
 
-### Further Styling
+#### Further Styling
 * Change colours - brand, active, buttons, body
 * Change fonts - display, body
 * Tweak layout in response to font changes
 * Add JS to determine body size after image load, make footer sticky if needed
 * Minor cosmetic tweaks
+
+#### About page
+* Add route & update links
+* Add page template
+* Expand template
+* Link with admin users
