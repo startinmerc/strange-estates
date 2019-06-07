@@ -12,6 +12,15 @@ body {
 	font-family: 'Sorts Mill Goudy', serif;
 }
 
+.first-character {
+	color: #73ADBA;
+    float: left;
+    font-size: 4.9rem;
+    font-family: 'Sorts Mill Goudy', serif;
+    margin-top: -.8rem;
+    margin-bottom: -2.1rem;
+}
+
 /*NAVBAR*/
 
 .navbar-collapse {
@@ -58,19 +67,26 @@ body {
 	border-radius: 0 0 0.25rem 0.25rem;
 }
 
-@media (max-width: 576px) {
+@media(max-width: 766px) {
 
-.jumbotron::before {
-	height: 30.6%
+	.jumbotron::before {
+		height: 45.6%;
+	}
+
+	.index-card-column {
+		padding-bottom: 15px;
+	}
+
 }
 
-.index-card-column {
-	padding-bottom: 15px;
+/*ABOUT PAGE*/
+@media (max-width: 766px) {
+	h1.display-3 {
+		text-align: center;
+	}
 }
 
-}
-
-/*SHOW PAGE*/
+/*SHOW LISTING PAGE*/
 
 .list-group-item.active {
 	background-color: #c6c8ca;
