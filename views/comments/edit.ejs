@@ -2,11 +2,51 @@
 
 <div class="container">
 	<div class="row mt-3">
-		<h1 class="mx-auto">Edit comment</h1>
+		<h1 class="mx-auto">Edit comment for <%=listing.name%></h1>
 	</div>
 	<div class="row">
 		<div class="w-25 mx-auto mt-2">
-			<form action="/listings/<%=listing_id%>/comments/<%=comment._id%>?_method=PUT" method="POST">
+			<form action="/listings/<%=listing._id%>/comments/<%=comment._id%>?_method=PUT" method="POST">
+				<div class="form-group">
+					<label for="rating">Leave a rating:</label>
+					<fieldset class="starability-basic form-group" id="rating">
+						<div>
+							<input type="radio" id="first-rate5" name="comment[rating]" value="5"
+							<% if (comment.rating === 5) { %> checked <% } %>/>
+							<label for="first-rate5" title="5 stars - Amazing">
+								<%- '<i class="fas fa-star"></i>'.repeat(5) %>
+							</label>
+						</div>
+						<div>
+							<input type="radio" id="first-rate4" name="comment[rating]" value="4"
+							<% if (comment.rating === 4) { %> checked <% } %>/>
+							<label for="first-rate4" title="4 stars - Very good">
+								<%- '<i class="fas fa-star"></i>'.repeat(4) %>
+							</label>
+						</div>
+						<div>
+							<input type="radio" id="first-rate3" name="comment[rating]" value="3"
+							<% if (comment.rating === 3) { %> checked <% } %>/>
+							<label for="first-rate3" title="3 stars - Average">
+								<%- '<i class="fas fa-star"></i>'.repeat(3) %>
+							</label>
+						</div>
+						<div>
+							<input type="radio" id="first-rate2" name="comment[rating]" value="2"
+							<% if (comment.rating === 2) { %> checked <% } %>/>
+							<label for="first-rate2" title="2 stars - Not good">
+								<%- '<i class="fas fa-star"></i>'.repeat(2) %>
+							</label>
+						</div>
+						<div>
+							<input type="radio" id="first-rate1" name="comment[rating]" value="1"
+							<% if (comment.rating === 1) { %> checked <% } %>/>
+							<label for="first-rate1" title="1 star - Terrible">
+								<%- '<i class="fas fa-star"></i>' %>
+							</label>
+						</div>          
+					</fieldset>
+				</div>
 				<div class="form-group">
 					<input 
 					class="form-control" 
