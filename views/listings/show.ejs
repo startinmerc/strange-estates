@@ -3,6 +3,13 @@
 	<div class="row">
 		<div class="col-md-3">
 			<p class="display-4"><%=listing.name%></p>
+			<p class="text-center">
+				<i class="fa-star fa-lg fas"></i>
+				<i class="fa-star fa-lg <% if (listing.rating > 1.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star fa-lg <% if (listing.rating > 2.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star fa-lg <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star fa-lg <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
+			</p>
 			<ul class="list-group">
 				<a class="list-group-item list-group-item-action active"
 				href="/listings/<%=listing.id%>">
@@ -49,9 +56,10 @@
 					<%listing.comments.forEach(function(comment){%>
 						<li class="list-group-item">
 							<strong><%=comment.author.username%></strong>
-							<small class="text-muted">10 Days ago</small>
+							<%- '<i class="fa-star fas"></i>'.repeat(comment.rating) %><%- '<i class="fa-star far"></i>'.repeat(5 - comment.rating) %>
 							<p><%=comment.text%></p>
-							<%if(currentUser && comment.author.id.equals(currentUser._id || currentUser && currentUser.isAdmin)){%>
+							<p class="text-muted"><%=comment.updatedAt.toDateString()%></p>
+							<%if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
 								<a class="btn btn-warning" 
 								href="/listings/<%=listing._id%>/comments/<%=comment._id%>/edit">
 									Edit

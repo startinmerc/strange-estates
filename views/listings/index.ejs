@@ -11,10 +11,17 @@
 	<div class="row">
 		<% allListings.forEach(function(listing){ %>
 			<div class="col-md-3 col-sm-6 index-card-column">
-				<div class="card index-card">
+				<div class="card index-card text-center">
 					<a href="/listings/<%=listing._id%>"><img class="card-img-top" src="<%=listing.image%>"></a>
 					<div class="card-body pb-0 px-0">
-						<h4 class="card-title text-center"><%= listing.name%></h4>
+						<h4 class="card-title mb-0"><%= listing.name%></h4>
+						<div class="card-text">
+							<i class="fa-star fas"></i>
+							<i class="fa-star <% if (listing.rating > 1.5) { %> fas <% } else { %> far <% } %>"></i>
+							<i class="fa-star <% if (listing.rating > 2.5) { %> fas <% } else { %> far <% } %>"></i>
+							<i class="fa-star <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
+							<i class="fa-star <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
+						</div>
 						<p class="mb-0">
 							<a href="/listings/<%=listing._id%>" class="btn btn-secondary d-block ">Details</a> 
 						</p>

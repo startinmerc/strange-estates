@@ -1,9 +1,9 @@
 var Listing = require("../models/listing");
 var Comment = require("../models/comment");
 
-var middlewateObj = {};
+var middlewareObj = {};
 
-middlewateObj.checkListingOwnership = function(req,res,next){
+middlewareObj.checkListingOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
 		Listing.findById(req.params.id, function(err,foundListing){
 			if (err || !foundListing) {
@@ -24,7 +24,7 @@ middlewateObj.checkListingOwnership = function(req,res,next){
 	}
 }
 
-middlewateObj.checkCommentOwnership = function(req,res,next){
+middlewareObj.checkCommentOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
 		Comment.findById(req.params.comment_id, function(err,foundComment){
 			if (err || !foundComment) {
@@ -46,7 +46,7 @@ middlewateObj.checkCommentOwnership = function(req,res,next){
 	}
 }
 
-middlewateObj.isLoggedIn = function(req,res,next){
+middlewareObj.isLoggedIn = function(req,res,next){
 	if(req.isAuthenticated()){
 		return next();
 	}
@@ -54,7 +54,7 @@ middlewateObj.isLoggedIn = function(req,res,next){
 	res.redirect("/login");
 }
 
-middlewateObj.isLoggedInAdmin = function(req,res,next){
+middlewareObj.isLoggedInAdmin = function(req,res,next){
 	if(req.isAuthenticated() && req.user.isAdmin){
 		return next();
 	}
@@ -62,4 +62,37 @@ middlewateObj.isLoggedInAdmin = function(req,res,next){
 	res.redirect("back");
 }
 
-module.exports = middlewateObj
+middlewareObj.checkCommentExistence = function(req,res,next){
+	if (req.isAuthenticated()) {
+		Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+			if (err || !foundListing) {
+				req.flash("err", "Listing not found.");
+				return res.redirect("back");
+			}
+			let foundComment = foundListing.comments.some(function(comment){
+				return comment.author.id.equals(req.user._id);
+			});
+			if (foundComment) {
+				req.flash("error", "You have already posted a comment");
+				return res.redirect("/listings/" + foundListing._id);
+			}
+			next();
+		});
+	} else {
+		req.flash("error", "Please log in first");
+		res.redirect("back");
+	}
+}
+
+middlewareObj.calculateAverage= function(comments){
+	if(comments.length === 0) {
+		return 0;
+	}
+	let sum = 0;
+	comments.forEach(function(comment){
+		sum += comment.rating;
+	});
+	return sum / comments.length;
+}
+
+module.exports = middlewareObj;
