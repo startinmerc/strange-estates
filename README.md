@@ -249,3 +249,8 @@ Version logs for the entire project are below...
 * Restyle edit comment form & populate correctly
 * Restyle new listing form
 * Restyle new comment form
+
+#### More styling
+* Restyle login & signup pages
+* Change signup button to match style
+* Make consistent headers across pages
