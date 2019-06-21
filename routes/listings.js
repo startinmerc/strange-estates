@@ -8,7 +8,7 @@ var middleware = require("../middleware");
 router.get("/", function(req,res){
 	Listing.find({}, function(err,allListings){
 		if (err) {
-			req.flash("error", "Database error");
+			req.flash("error", err.message);
 			res.redirect("/");
 		} else {
 			res.render("listings/index", {allListings:allListings});
@@ -35,7 +35,7 @@ router.post("/", middleware.isLoggedInAdmin, function(req,res){
 	var newListing = {name: name, price:price, image: image, description:desc, author:author};
 	Listing.create(newListing, function(err,newListing){
 		if (err) {
-			req.flash("error", "Database error");
+			req.flash("error", err.message);
 			res.redirect("/listings");
 		} else {
 			req.flash("success", "Listing created");
@@ -46,7 +46,10 @@ router.post("/", middleware.isLoggedInAdmin, function(req,res){
 
 // Show Route - Main
 router.get(("/:id"), function(req,res){
-	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+	Listing.findById(req.params.id).populate("comments").populate({
+		path: "comments",
+		options: {sort: {createdAt: -1}}
+	}).exec(function(err,foundListing){
 		if (err || !foundListing) {
 			req.flash("error", "Listing not found");
 			res.redirect("back");
@@ -94,9 +97,10 @@ router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 
 // Update Route
 router.put("/:id", middleware.checkListingOwnership, function(req,res){
+	delete req.body.listing.rating;
 	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
 		if (err) {
-			req.flash("error", "Database error");
+			req.flash("error", err.message);
 			res.redirect("back");
 		} else {
 			req.flash("success", "Listing edited");
@@ -109,7 +113,7 @@ router.put("/:id", middleware.checkListingOwnership, function(req,res){
 router.delete("/:id", middleware.checkListingOwnership, function(req, res){
     Listing.findByIdAndRemove(req.params.id, function(err, removedListing){
 		if (err) {
-			req.flash("error", "Database error");
+			req.flash("error", err.message);
 			res.redirect("/listings");
         } else {
 	        Comment.deleteMany( {_id: { $in: removedListing.comments } }, function(err){
