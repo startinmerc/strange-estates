@@ -21,6 +21,12 @@ body {
     margin-bottom: -2.1rem;
 }
 
+.redacted {
+	background-color: #000;
+	color: #FFF;
+	font-family: monospace;
+}
+
 /*NAVBAR*/
 
 .navbar-collapse {

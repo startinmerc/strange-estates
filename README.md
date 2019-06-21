@@ -217,3 +217,6 @@ Version logs for the entire project are below...
 * Add page template
 * Expand template
 * Link with admin users
+
+#### Copy!
+* Write Proper About Section
