@@ -220,3 +220,26 @@ Version logs for the entire project are below...
 
 #### Copy!
 * Write Proper About Section
+
+### V14
+
+#### Ratings pt.1
+* Integrate 1-5 rating in comment model
+* Handle this in comment routes
+
+#### Ratings pt.2
+* Add check comment existence check to middleware route
+* Add check comment existence check to comment route
+
+#### Ratings pt.3
+* Add average rating function to middleware
+* Add to listing model with average rating
+* Handle in listing show page
+
+#### Ratings pt.4
+* Add field to new comment / edit form
+
+#### Ratings pt.5
+* Add ratings to seed comments
+* Update average rating in seeds after populating
+* Bug fixes on comment population
