@@ -1,0 +1,76 @@
+<% include ../partials/header %>
+
+<main class="container">
+	<div class="row">
+		<div class="col-12 text-center">
+			<h1>Comment Page for <%= listing.name %></h1>
+		</div>
+		<div class="col-12 text-center">
+			<a href="/listings/<%= listing._id %>"><i class="fas fa-arrow-left"></i> Go back to listing page</a>
+		</div>
+		<div class="col-12 text-center">
+			<% if (listing.rating === 0) { %>
+				<h5>
+					<em>No comments yet.</em>
+				</h5>
+		</div>
+			<% } else { %>
+				<p>
+				<i class="fas fa-star"></i>
+				<i class="fa-star <% if (listing.rating > 1.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star <% if (listing.rating > 2.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
+				<i class="fa-star <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
+				<em>From <%= listing.comments.length %> comments</em>
+				</p>
+				<p>
+				Current listing rating: <strong><%= listing.rating.toFixed(2) %></strong>
+				</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<h4>All comments for this listing:</h4>
+			<hr>
+		</div>
+	</div>
+		<% listing.comments.forEach(function(comment){ %>
+		<div class="row">
+				<div class="col-md-3">
+					<%- '<i class="fa-star fas"></i>'.repeat(comment.rating) %>
+					<%- '<i class="fa-star far"></i>'.repeat(5 - comment.rating) %>
+					<div>Comment by: <strong><%= comment.author.username %></strong></div>
+					<small class="text-muted"><%=comment.updatedAt.toDateString()%></small>
+				</div>
+				<div class="col-md-9">
+					<p>
+						<%= comment.text %>
+					</p>
+					<%if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
+						<a class="btn btn-warning" 
+							href="/listings/<%=listing._id%>/comments/<%=comment._id%>/edit">
+								Edit
+						</a>
+						<form class="d-inline" 
+							action="/listings/<%=listing._id%>/comments/<%=comment._id%>?_method=DELETE" 
+							method="POST">
+							<button class="btn btn-danger">Delete</button>
+						</form>
+						<%}%>
+					</div>
+			<div class="col-12"><hr></div>
+			</div>
+				<% }); %>
+		<% } %>
+	<div class="row">
+		<div class="col-12">
+			<a class="btn btn-primary 	
+			<% if (currentUser && listing.comments.some(function(comment) {return comment.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/listings/<%= listing._id %>/comments/new">
+				Write a New Comment
+			</a>
+		</div>
+  </div>
+</div>
+</main>
+
+<% include ../partials/footer %>
