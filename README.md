@@ -243,3 +243,9 @@ Version logs for the entire project are below...
 * Add ratings to seed comments
 * Update average rating in seeds after populating
 * Bug fixes on comment population
+
+#### Form styling
+* Restyle edit listing form & populate correctly
+* Restyle edit comment form & populate correctly
+* Restyle new listing form
+* Restyle new comment form

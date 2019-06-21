@@ -1,6 +1,6 @@
 {
   "name": "strange-estates",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "description": "A product of Strange Industries",
   "main": "app.js",
   "scripts": {

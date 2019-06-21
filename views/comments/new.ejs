@@ -5,7 +5,7 @@
 		<h1 class="mx-auto">Add a new comment for <%=listing.name%></h1>
 	</div>
 	<div class="row">
-		<div class="w-25 mx-auto mt-2">
+		<div class="w-50 mx-auto mt-2">
 			<form action="/listings/<%=listing._id%>/comments" method="POST">
 				<div class="form-group">
 					<label for="rating">Leave a rating:</label>
@@ -43,13 +43,15 @@
 					</fieldset>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="text" name="comment[text]" placeholder="text">
+					<label for="comment-text">Comment Text</label>
+					<textarea class="form-control" name="comment[text]" 
+					placeholder="Comment Text" id="comment-text"></textarea>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary btn-block">Submit</button>
+					<button class="btn btn-secondary btn-block">Submit</button>
 				</div>
 			</form>
-			<a href="/listings">Back</a>
+			<a href="/listings/<%=listing._id%>">Back</a>
 		</div>
 	</div>
 </div>
