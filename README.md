@@ -244,6 +244,8 @@ Version logs for the entire project are below...
 * Update average rating in seeds after populating
 * Bug fixes on comment population
 
+### V15
+
 #### Form styling
 * Restyle edit listing form & populate correctly
 * Restyle edit comment form & populate correctly
@@ -254,3 +256,7 @@ Version logs for the entire project are below...
 * Restyle login & signup pages
 * Change signup button to match style
 * Make consistent headers across pages
+
+#### JavaScripting
+* Pull footer to page bottom if no images on page
+* Add active class to nav link if relevant

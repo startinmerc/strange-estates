@@ -8,11 +8,20 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		$(document).ready(() => {
-			var imagesLoaded = 0;
-			var totalImages = $('img').length;
-			$('img').each((idx, img) => {
-				$('<img>').on('load', imageLoaded).attr('src', $(img).attr('src'));
-			});
+			
+			updateNav();
+
+			let imagesLoaded = 0,
+					totalImages = $('img').length;
+
+			if (totalImages === 0) {
+				allImagesLoaded();
+			} else {
+				$('img').each((idx, img) => {
+					$('<img>').on('load', imageLoaded).attr('src', $(img).attr('src'));
+				});
+			}
+		
 			function imageLoaded() {
 				imagesLoaded++;
 				if (imagesLoaded == totalImages) {
@@ -25,9 +34,13 @@
 					$("footer").addClass("fixed-bottom");
 				}
 			}
-		});
-	
 
+			function updateNav() {
+				let pathname = window.location.pathname;
+				$('a[href="'+pathname+'"]').addClass('active');
+			}
+		
+		});
 	</script>
 	</body>
 </html>
