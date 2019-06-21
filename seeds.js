@@ -1,6 +1,7 @@
 var mongoose 	= require("mongoose"),
 	Listing 	= require("./models/listing"),
-	Comment 	= require("./models/comment");
+	Comment 	= require("./models/comment"),
+	middleware = require("./middleware");
 
 var list = [
 	{
@@ -99,7 +100,7 @@ var list = [
 		],
 		price: "2000"
 	}
-	];
+];
 
 function seedDB(){
 	Listing.deleteMany({}, function(err){
@@ -121,14 +122,15 @@ function seedDB(){
 							author: {
 								id: "5cf50613ea840b0378d3670f",
 								username: "user"
-							}
+							},
+							rating: 4
 						}, function(err,comment){
 							if (err) {
 								console.log(err)
 							} else {
 								listing.comments.push(comment);
+								listing.rating = middleware.calculateAverage(listing.comments);
 								listing.save();
-								// console.log("Added Comment")
 							}
 						});
 					}
