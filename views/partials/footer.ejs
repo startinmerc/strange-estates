@@ -32,6 +32,8 @@
 			function allImagesLoaded() {
 				if($("body").height() < $(window).height()){
 					$("footer").addClass("fixed-bottom");
+				} else {
+					$("nav").addClass("sticky-top");
 				}
 			}
 
