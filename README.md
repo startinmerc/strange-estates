@@ -285,13 +285,36 @@ Version logs for the entire project are below...
 * Remove card borders
 * Tweak jumbotron spacing
 
-#### Pending ideas
-* agent profiles
-* better display for features
-* put features in new/edit forms (checkboxes?)
-* put gallery in new/edit forms (checkboxes?)
-* copy copy copy
-* default unrated on listings
-* listing show pages into ont pager with tabbed navigation
-* masonry layout to listings index
+---
+### Pending ideas
+
+#### User profiles
+* avatar for all users
+* field & about sections for agents
+* display in comments, about us section
+* add to CRUD routes
+
+#### List CRUD updating
+* put gallery in new/edit forms
+* update routes to pass this info
+* fixed array of features as checkboxes
+* update routes to pass this info
+
+#### Copy
+* Listing Name
+* Listing Description
+* Listing Images
+* Agent Image
+* Agent Description
+* Agent Field
+* User Image
+* User Comment
+
+#### Show page
+* Combine detail/gallery/features on one page
+* make one central column
+* Gallery as main image
+
+#### Misc
 * sticky header
+* better display for features?
