@@ -6,7 +6,8 @@ var middleware = require("../middleware");
 
 // Index Route
 router.get("/", function(req,res){
-	let search = {};
+	let search = {},
+			term = "";
 	if (req.query.search) {
 		search = {name: new RegExp(middleware.escapeRegex(req.query.search), "gi")};
 		term = (search.name.toString().slice(1,-3));
@@ -18,7 +19,6 @@ router.get("/", function(req,res){
 		} else if (foundListings.length === 0) {
 			req.flash("error", "No listings found for " + term);
 			res.redirect("listings");
-			// res.render("listings/index", {foundListings:foundListings, "error":"No listings found for search term"});
 		}	else {
 			res.render("listings/index", {foundListings:foundListings, term:term});
 		}
