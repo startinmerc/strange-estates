@@ -1,7 +1,7 @@
 <%include ../partials/header%>
 
 <div class="container">
-	<header class="jumbotron py-3">
+	<header class="jumbotron pt-3 pb-1">
 		<div class="container text-center">
 			<h1 class="display-2">Strange Estates</h1>
 			<%if(term && !error){%>
@@ -9,7 +9,7 @@
 			<%} else {%>
 			<p class="mt-3">View our full listings below.</p>
 			<%}%>
-			<p>
+			<p class="mt-5">
 				<form action="/listings" method="GET" class="form-inline">
 					<div class="form-group mx-auto">
 						<label class="sr-only" for="search">Search listings</label>
@@ -22,10 +22,9 @@
 		</div>
 	</header>
 
-	<div class="row">
+	<div class="card-columns">
 		<% foundListings.forEach(function(listing){ %>
-			<div class="col-md-3 col-sm-6 index-card-column">
-				<div class="card index-card text-center">
+				<div class="card index-card text-center border-0">
 					<a href="/listings/<%=listing._id%>">
 						<img class="card-img-top" src="<%=listing.image.src%>" alt="<%=listing.image.alt%>">
 					</a>
@@ -38,13 +37,14 @@
 							<i class="fa-star <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
 							<i class="fa-star <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
 						</div>
+					</div>
+					<div class="card-footer p-0 border-0">
 						<p class="mb-0">
 							<a href="/listings/<%=listing._id%>" class="btn btn-secondary d-block ">Details</a> 
 						</p>
 					</div><!-- card-body -->
 				</div><!-- card -->
-			</div><!-- col -->
 		<% }); %><!-- forEach-->
-	</div><!-- row -->
+	</div><!-- card-columns -->
 </div><!-- container -->
 <%include ../partials/footer%>

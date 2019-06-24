@@ -280,6 +280,11 @@ Version logs for the entire project are below...
 * Pass error if no results
 * Only display search term if results show
 
+#### Index page styling
+* Change to Masonry-style layout
+* Remove card borders
+* Tweak jumbotron spacing
+
 #### Pending ideas
 * agent profiles
 * better display for features
