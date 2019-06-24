@@ -268,8 +268,20 @@ Version logs for the entire project are below...
 * Update seeds to reflect changes
 * Add src field to new & edit listing forms
 
+### V16
+
+#### Search bar
+* Add search bar to index page
+* Add regex for form validation in middleware
+* Pass search term to listings index render
+
+#### Search bar pt2
+* Display search term in jumbotron
+* Pass error if no results
+* Only display search term if results show
 
 #### Pending ideas
+* agent profiles
 * better display for features
 * put features in new/edit forms (checkboxes?)
 * put gallery in new/edit forms (checkboxes?)
@@ -277,4 +289,4 @@ Version logs for the entire project are below...
 * default unrated on listings
 * listing show pages into ont pager with tabbed navigation
 * masonry layout to listings index
-sticky header
+* sticky header

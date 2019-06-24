@@ -95,4 +95,8 @@ middlewareObj.calculateAverage= function(comments){
 	return sum / comments.length;
 }
 
+middlewareObj.escapeRegex = function(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 module.exports = middlewareObj;

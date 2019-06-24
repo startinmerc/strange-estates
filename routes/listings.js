@@ -6,12 +6,21 @@ var middleware = require("../middleware");
 
 // Index Route
 router.get("/", function(req,res){
-	Listing.find({}, function(err,allListings){
+	let search = {};
+	if (req.query.search) {
+		search = {name: new RegExp(middleware.escapeRegex(req.query.search), "gi")};
+		term = (search.name.toString().slice(1,-3));
+	}
+	Listing.find(search, function(err,foundListings){
 		if (err) {
 			req.flash("error", err.message);
-			res.redirect("/");
-		} else {
-			res.render("listings/index", {allListings:allListings});
+			res.redirect("back");
+		} else if (foundListings.length === 0) {
+			req.flash("error", "No listings found for " + term);
+			res.redirect("listings");
+			// res.render("listings/index", {foundListings:foundListings, "error":"No listings found for search term"});
+		}	else {
+			res.render("listings/index", {foundListings:foundListings, term:term});
 		}
 	});
 });
