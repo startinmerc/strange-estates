@@ -3,7 +3,10 @@ var mongoose = require("mongoose");
 
 var listingSchema = new mongoose.Schema({
 	name: String,
-	image: String,
+	image: {
+		src: String,
+		alt: String
+	},
 	description: String,
 	price: String,
 	comments: [

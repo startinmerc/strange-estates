@@ -28,7 +28,7 @@
 				  <div class="carousel-inner">
 					  	<%listing.gallery.forEach((image, index) => {%>
 						    <div class="carousel-item <%if (index===0) {%>active<%}%>">
-						      <img class="d-block w-100" src="<%=image%>" alt="Image">
+						      <img class="d-block w-100" src="<%=image.src%>" alt="image.alt">
 						    </div>
 					    <%});%>
 				  </div>

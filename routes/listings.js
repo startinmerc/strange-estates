@@ -97,8 +97,13 @@ router.get("/:id/edit", middleware.checkListingOwnership, function(req,res){
 
 // Update Route
 router.put("/:id", middleware.checkListingOwnership, function(req,res){
-	delete req.body.listing.rating;
-	Listing.findByIdAndUpdate(req.params.id, req.body.listing, function(err, updatedListing){
+	// delete req.body.listing.rating;
+	var name = req.body.name;
+	var image = req.body.image;
+	var desc = req.body.description;
+	var price = req.body.price;
+	var updatedListing = {name: name, price:price, image: image, description:desc};
+	Listing.findByIdAndUpdate(req.params.id, updatedListing, function(err, updatedListing){
 		if (err) {
 			req.flash("error", err.message);
 			res.redirect("back");

@@ -11,8 +11,6 @@
 				<input class="form-control" type="text" 
 				name="name" id="listing-name" placeholder="name">
 			</div>
-		</div>
-		<div class="col-12 col-lg-6">
 			<div class="form-group">
 				<label for="listing-price">Listing Price</label>
 				<div class="input-group">
@@ -24,12 +22,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12">
+		<div class="col-12 col-lg-6">
 			<div class="form-group">
 				<label for="listing-image-link">Image Link</label>
-				<input class="form-control" type="text" name="image"
+				<input class="form-control" type="text" name="image[src]"
 				id="listing-image-link" placeholder="Listing Image Link">
 			</div>
+			<div class="form-group">
+				<label for="listing-image-caption">Image Caption</label>
+				<input class="form-control" type="text" name="image[alt]"
+				id="listing-image-caption" placeholder="Listing Image Caption">
+			</div>
+		</div>
+		<div class="col-12">
 			<div class="form-group">
 				<label for="listing-description">Description</label>
 				<textarea class="form-control" name="description" rows="3"

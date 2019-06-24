@@ -12,7 +12,9 @@
 		<% allListings.forEach(function(listing){ %>
 			<div class="col-md-3 col-sm-6 index-card-column">
 				<div class="card index-card text-center">
-					<a href="/listings/<%=listing._id%>"><img class="card-img-top" src="<%=listing.image%>"></a>
+					<a href="/listings/<%=listing._id%>">
+						<img class="card-img-top" src="<%=listing.image.src%>" alt="<%=listing.image.alt%>">
+					</a>
 					<div class="card-body pb-0 px-0">
 						<h4 class="card-title mb-0"><%= listing.name%></h4>
 						<div class="card-text">
@@ -28,7 +30,7 @@
 					</div><!-- card-body -->
 				</div><!-- card -->
 			</div><!-- col -->
-		<% }); %>
+		<% }); %><!-- forEach-->
 	</div><!-- row -->
 </div><!-- container -->
 <%include ../partials/footer%>

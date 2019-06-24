@@ -6,16 +6,16 @@ var mongoose 	= require("mongoose"),
 var list = [
 	{
 		name: "Listing One",
-		image: "https://source.unsplash.com/VhpDAKvVA-Q",
+		image: {src: "https://source.unsplash.com/VhpDAKvVA-Q", alt:"Listing Image"},
 		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
 		author: {
 			id: "5cf7d811373ad70d4d1925ce",
 			username: "Agent 1"
 		},
 		gallery: [
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345"
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
 		],
 		features: [
 			"Feature 1",
@@ -31,16 +31,16 @@ var list = [
 	},
 	{
 		name: "Listing Two", 
-		image: "https://source.unsplash.com/uh0u8OH4zuE", 
+		image: {src: "https://source.unsplash.com/uh0u8OH4zuE", alt:"Listing Image"},
 		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
 		author: {
 			id: "5cf7d811373ad70d4d1925ce",
 			username: "Agent 1"
 		},
 		gallery: [
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345"
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
 		],
 		features: [
 			"Feature 1",
@@ -56,15 +56,15 @@ var list = [
 	},
 	{
 		name: "Listing Three", 
-		image: "https://source.unsplash.com/dqZGqFU4Usk", 
+		image: {src: "https://source.unsplash.com/dqZGqFU4Usk", alt:"Listing Image"},
 		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
 		author: {
 			id: "5cf7d811373ad70d4d1925ce",
 			username: "Agent 1"
 		},
 		gallery: [
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345"
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
 		],
 		features: [
 			"Feature 1",
@@ -80,17 +80,17 @@ var list = [
 	},
 	{
 		name: "Listing Four", 
-		image: "https://source.unsplash.com/07t5vZoW9n8", 
+		image: {src: "https://source.unsplash.com/07t5vZoW9n8", alt:"Listing Image"},
 		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
 		author: {
 			id: "5cf7d811373ad70d4d1925ce",
 			username: "Agent 1"
 		},
 		gallery: [
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345",
-			"https://source.unsplash.com/collection/4945345"
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
 		],
 		features: [
 			"Feature 1",

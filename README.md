@@ -260,3 +260,21 @@ Version logs for the entire project are below...
 #### JavaScripting
 * Pull footer to page bottom if no images on page
 * Add active class to nav link if relevant
+
+#### Alt attr to images
+* Expand image in listing model to be object with src and alt
+* Change edit route to handle this _(worth researching how to pass objects-in-objects later...)_
+* Put alt attr on all views which handle images
+* Update seeds to reflect changes
+* Add src field to new & edit listing forms
+
+
+#### Pending ideas
+* better display for features
+* put features in new/edit forms (checkboxes?)
+* put gallery in new/edit forms (checkboxes?)
+* copy copy copy
+* default unrated on listings
+* listing show pages into ont pager with tabbed navigation
+* masonry layout to listings index
+sticky header
