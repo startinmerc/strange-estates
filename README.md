@@ -299,13 +299,15 @@ Version logs for the entire project are below...
 * Gallery as main image
 * Convert to grid system from card
 * Large header
-_to do:_
-* JS to resize header on scroll
-* Navigation within page - add to header?
 * fix carousel image sizing
+* Navigation within page
 
 ---
 ### Pending ideas
+
+#### Show Page
+* JS to resize header on scroll
+* Show Nav to sticky on scroll
 
 #### User profiles
 * avatar for all users
