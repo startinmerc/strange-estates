@@ -104,6 +104,17 @@ body {
 	border-color: #c6c8ca;
 }
 
+.listing-header {
+	height: 50vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.listing-header .display-4 {
+	margin-top: 25vh;
+	transform: translateY(-50%);
+}
 /*.listing-nav-item.active::after {
 	content: "";
 	width: 35px;

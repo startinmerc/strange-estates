@@ -291,6 +291,19 @@ Version logs for the entire project are below...
 * Modify CSS selector for image styling to cover focus change
 * Add JS to make navbar sticky if page is bigger than viewport
 
+### V17
+
+#### Show page
+* Combine detail/gallery/features on one page
+* make one central column
+* Gallery as main image
+* Convert to grid system from card
+* Large header
+_to do:_
+* JS to resize header on scroll
+* Navigation within page - add to header?
+* fix carousel image sizing
+
 ---
 ### Pending ideas
 
@@ -316,10 +329,7 @@ Version logs for the entire project are below...
 * User Image
 * User Comment
 
-#### Show page
-* Combine detail/gallery/features on one page
-* make one central column
-* Gallery as main image
+
 
 #### Misc
 * better display for features?
