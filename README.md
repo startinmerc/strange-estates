@@ -285,6 +285,12 @@ Version logs for the entire project are below...
 * Remove card borders
 * Tweak jumbotron spacing
 
+#### Other small styling changes
+* Update Bootstrap
+* Add stretched-link to cards & remove link around image
+* Modify CSS selector for image styling to cover focus change
+* Add JS to make navbar sticky if page is bigger than viewport
+
 ---
 ### Pending ideas
 
@@ -316,5 +322,4 @@ Version logs for the entire project are below...
 * Gallery as main image
 
 #### Misc
-* sticky header
 * better display for features?
