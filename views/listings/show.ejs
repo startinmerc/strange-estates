@@ -1,26 +1,26 @@
 <%include ../partials/header%>
-<div class="container-fluid listing-header mb-3" style="background-image: url(<%=listing.image.src%>);">
+<div class="container-fluid listing-header" style="background-image: url(<%=listing.image.src%>);">
 	<div class="row">
 		<div class="col-12">
 			<p class="display-4 text-center text-white"><%=listing.name%></p>
 		</div>
 	</div>
 </div>
-<div class="container bg-white">
 
-<!-- 	<div class="col-md-3">
-		<ul class="list-group">
-			<a class="list-group-item list-group-item-action active"
-				href="/listings/<%=listing.id%>">
-				Overview</a>
-			<a class="list-group-item list-group-item-action"
-				href="/listings/<%=listing.id%>/gallery">
-				Gallery</a>
-			<a class="list-group-item list-group-item-action"
-				href="/listings/<%=listing.id%>/features">
-				Features</a>
-		</ul>
-	</div> -->
+<div class="container mb-3">
+	<div class="row">
+		<div class="col-12">
+			<ul class="nav nav-pills nav-fill">
+				<a href="#gallery" class="nav-item nav-link bg-secondary text-white border">Gallery</a>
+				<a href="#details" class="nav-item nav-link bg-secondary text-white border rounded-0">Details</a>
+				<a href="#features" class="nav-item nav-link bg-secondary text-white border rounded-0">Features</a>
+				<a href="#reviews" class="nav-item nav-link bg-secondary text-white border">Comments</a>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container bg-white pt-3">
 
 	<div class="row mb-3" id="gallery">
 		<div class="col-12">
