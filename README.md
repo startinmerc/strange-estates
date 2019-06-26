@@ -331,7 +331,7 @@ Version logs for the entire project are below...
 * User Image
 * User Comment
 
-
-
 #### Misc
 * better display for features?
+* lazy-load listings page, slide in from bottom
+* make listings header image a background or calculate size to end of jumbotron
