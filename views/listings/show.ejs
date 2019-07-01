@@ -1,5 +1,19 @@
 <%include ../partials/header%>
-<div class="container-fluid listing-header" style="background-image: url(<%=listing.image.src%>);">
+<div class="container-fluid listing-nav-sticky sticky-top">
+	<div class="row">
+		<div class="col-12">
+			<ul class="nav nav-pills nav-fill">
+				<a href="#listing-header" class="nav-item nav-link bg-secondary text-white border"><%=listing.name%></a>
+				<a href="#gallery" 				class="nav-item nav-link bg-secondary text-white border rounded-0">Gallery</a>
+				<a href="#details" 				class="nav-item nav-link bg-secondary text-white border rounded-0">Details</a>
+				<a href="#features" 			class="nav-item nav-link bg-secondary text-white border rounded-0">Features</a>
+				<a href="#reviews" 				class="nav-item nav-link bg-secondary text-white border">Comments</a>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" id="listing-header" style="background-image: url(<%=listing.image.src%>);">
 	<div class="row">
 		<div class="col-12">
 			<p class="display-4 text-center text-white"><%=listing.name%></p>
@@ -7,7 +21,7 @@
 	</div>
 </div>
 
-<div class="container mb-3">
+<div class="container-fluid listing-nav mb-3">
 	<div class="row">
 		<div class="col-12">
 			<ul class="nav nav-pills nav-fill">

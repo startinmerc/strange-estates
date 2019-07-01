@@ -6,6 +6,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		$(document).ready(() => {
 			
@@ -21,11 +22,43 @@
 					$('<img>').on('load', imageLoaded).attr('src', $(img).attr('src'));
 				});
 			}
-		
+			
+			var listingCards = $(".index-card").toArray();
+			var timeLine = new TimelineMax({paused:true});
+			listingCards.forEach((card) => {
+				timeLine.to(card, 0.23, {
+					opacity: 1,
+					y: "0%"
+				});
+			});
+
+			var headerTimeline = new TimelineMax({paused: true});
+			var header = document.querySelector("#listing-header");
+			var options = {threshold: 0.5};
+
+			headerTimeline.to(".listing-nav", 0.15, {
+				opacity: 0
+			}).to(".listing-nav-sticky", 0.15, {
+				opacity: 1
+			}, 0);
+
+			const observer = new IntersectionObserver(function(entries, observer) {
+				entries.forEach(entry => {
+					if(entry.isIntersecting){
+						headerTimeline.reverse()
+					} else {
+						headerTimeline.play();
+					}
+				});
+			}, options);
+
+			observer.observe(header);
+
 			function imageLoaded() {
 				imagesLoaded++;
 				if (imagesLoaded == totalImages) {
 					allImagesLoaded();
+					timeLine.play();
 				}
 			}
 

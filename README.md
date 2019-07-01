@@ -302,12 +302,17 @@ Version logs for the entire project are below...
 * fix carousel image sizing
 * Navigation within page
 
+### V18
+
+#### GSAP
+* Add CDN to footer
+* Add index page animation from codepen file
+* Add listing page animation from codepen file
+* Change classes & IDs in show page to improve semantics
+
+
 ---
 ### Pending ideas
-
-#### Show Page
-* JS to resize header on scroll
-* Show Nav to sticky on scroll
 
 #### User profiles
 * avatar for all users
@@ -333,5 +338,4 @@ Version logs for the entire project are below...
 
 #### Misc
 * better display for features?
-* lazy-load listings page, slide in from bottom
 * make listings header image a background or calculate size to end of jumbotron
