@@ -317,6 +317,8 @@ Version logs for the entire project are below...
 #### Style changes
 * Refactor header on index & show pages to share styles & layout
 * Put listing search in seperate row
+* Show search term in search bar on results page
+* Show search term in index header
 
 ---
 
@@ -346,3 +348,4 @@ Version logs for the entire project are below...
 
 #### Misc
 * better display for features?
+* blotter on landing header
