@@ -26,6 +26,19 @@ body {
 	font-family: monospace;
 }
 
+#header {
+	height: 50vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#header .display-4 {
+	margin-top: 25vh;
+	transform: translateY(-50%);
+}
+
+
 /*NAVBAR*/
 
 .navbar-collapse {
@@ -39,24 +52,6 @@ body {
 }
 
 /*INDEX PAGE*/
-
-.jumbotron::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 33.9%;
-	z-index: -1;
-	background: url("https://source.unsplash.com/whqHBbiC7tY");
-	background-color: #CECDC9;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.jumbotron {
-	background-color: #e9ecefBF;
-}
 
 .search-bar {
 	background-color: #e9ecefBF;
@@ -122,18 +117,6 @@ body {
 .carousel-item {
 	height: 100%;
 	width: 100%;
-}
-
-#listing-header {
-	height: 50vh;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-#listing-header .display-4 {
-	margin-top: 25vh;
-	transform: translateY(-50%);
 }
 
 .listing-nav {
