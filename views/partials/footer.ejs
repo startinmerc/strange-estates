@@ -13,7 +13,10 @@
 			updateNav();
 
 			let imagesLoaded = 0,
-					totalImages = $('img').length;
+					totalImages = $('img').length,
+					header = document.querySelector("#header"),
+					options = {threshold: 0.5};
+			var cardsTimeline = new TimelineMax({paused:true});
 
 			if (totalImages === 0) {
 				allImagesLoaded();
@@ -22,43 +25,54 @@
 					$('<img>').on('load', imageLoaded).attr('src', $(img).attr('src'));
 				});
 			}
-			
-			var listingCards = $(".index-card").toArray();
-			var timeLine = new TimelineMax({paused:true});
-			listingCards.forEach((card) => {
-				timeLine.to(card, 0.23, {
-					opacity: 1,
-					y: "0%"
+
+			if (window.location.pathname === "/listings") {
+				buildCardsTimeline(cardsTimeline);
+			}
+
+			if ($(".listing-nav").length > 0){
+				var headerTimeline = buildNavTimeline();
+				var observer = createObserver(options);
+				observer.observe(header);
+			}
+
+			function buildCardsTimeline(cardsTimeline) {
+				var listingCards = $(".index-card").toArray();
+				listingCards.forEach((card) => {
+					cardsTimeline.to(card, 0.23, {
+						opacity: 1,
+						y: "0%"
+					});
 				});
-			});
+			}
 
-			var headerTimeline = new TimelineMax({paused: true});
-			var header = document.querySelector("#listing-header");
-			var options = {threshold: 0.5};
+			function buildNavTimeline() {
+				var headerTimeline = new TimelineMax({paused: true});
+				headerTimeline.to(".listing-nav", 0.15, {
+					opacity: 0
+				}).to(".listing-nav-sticky", 0.15, {
+					opacity: 1
+				}, 0);
+				return headerTimeline
+			}
 
-			headerTimeline.to(".listing-nav", 0.15, {
-				opacity: 0
-			}).to(".listing-nav-sticky", 0.15, {
-				opacity: 1
-			}, 0);
-
-			const observer = new IntersectionObserver(function(entries, observer) {
-				entries.forEach(entry => {
-					if(entry.isIntersecting){
-						headerTimeline.reverse()
-					} else {
-						headerTimeline.play();
-					}
-				});
-			}, options);
-
-			observer.observe(header);
+			function createObserver(options) {
+				return new IntersectionObserver(function(entries, observer) {
+					entries.forEach(entry => {
+						if(entry.isIntersecting){
+							headerTimeline.reverse()
+						} else {
+							headerTimeline.play();
+						}
+					});
+				}, options);
+			}
 
 			function imageLoaded() {
 				imagesLoaded++;
 				if (imagesLoaded == totalImages) {
 					allImagesLoaded();
-					timeLine.play();
+					cardsTimeline.play();
 				}
 			}
 
