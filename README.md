@@ -310,8 +310,16 @@ Version logs for the entire project are below...
 * Add listing page animation from codepen file
 * Change classes & IDs in show page to improve semantics
 
+#### GSAP Refactor
+* Refactor timeline building & intersection observer to functions
+* Nest in conditionals for relevant pages
+
+#### Style changes
+* Refactor header on index & show pages to share styles & layout
+* Put listing search in seperate row
 
 ---
+
 ### Pending ideas
 
 #### User profiles
@@ -338,4 +346,3 @@ Version logs for the entire project are below...
 
 #### Misc
 * better display for features?
-* make listings header image a background or calculate size to end of jumbotron
