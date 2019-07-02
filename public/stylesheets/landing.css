@@ -37,7 +37,7 @@ body {
 	background-repeat: no-repeat;
 	z-index: -1;
 	list-style: none;
-	background-image: url("https://source.unsplash.com/IUkADtlFbK0")
+	background-image: url("https://images.unsplash.com/photo-1488650989610-0d7e27dc293c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9")
 }
 
 .landing-background li:nth-child(1) {
