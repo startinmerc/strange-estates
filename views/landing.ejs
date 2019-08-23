@@ -30,7 +30,8 @@
 <div class="landing-container">
 	<div class="header text-center">
 		<h1 class="display-4">Welcome to</h1>
-		<h1 class="display-1">Strange Estates</h1>
+		<span id="distortion-text"></span>
+		<h1 class="display-1 sr-only sr-only-focusable">Strange Estates</h1>
 	</div>
 	<div class="sub text-center pb-2">
 		<h3 class="font-weight-light">Specialist letting agency</h3>
@@ -40,6 +41,8 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/blotter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/materials/liquidDistortMaterial.min.js"></script>
 
 <script type="text/javascript">
 	TweenMax.to(".landing-background li:nth-child(2)", 3, {
@@ -66,6 +69,30 @@
 		repeatDelay: 1.5,
 		delay: 1.5
 	});
+
+	// BLOTTER - Example 2
+	var text = new Blotter.Text("Strange Estates", {
+	  family : "'Sorts Mill Goudy', serif",
+	  size : 96,
+	  fill : "#212529",
+	  paddingLeft : 50,
+	  paddingRight : 50
+	});
+
+	var material = new Blotter.LiquidDistortMaterial();
+
+	material.uniforms.uSpeed.value = 0.15;
+	material.uniforms.uVolatility.value = 0.15;
+	material.uniforms.uSeed.value = 0.1;
+
+	var blotter = new Blotter(material, {
+	  texts : text
+	});
+
+	var elem = document.getElementById("distortion-text");
+	var scope = blotter.forText(text);
+
+	scope.appendTo(elem);
 </script>
 </body>
 </html>
