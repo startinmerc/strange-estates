@@ -320,6 +320,12 @@ Version logs for the entire project are below...
 * Show search term in search bar on results page
 * Show search term in index header
 
+#### Blotter.js
+* Add Blotter CDN to landing page
+* Add span for Blotter to HTML
+* Add class to old header so screen readable
+* Adjust values & style Blotter instance
+
 ---
 
 ### Pending ideas
@@ -348,4 +354,3 @@ Version logs for the entire project are below...
 
 #### Misc
 * better display for features?
-* blotter on landing header
