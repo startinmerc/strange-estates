@@ -1,5 +1,5 @@
 var Listing = require("../models/listing");
-var Comment = require("../models/comment");
+var Review = require("../models/review");
 
 var middlewareObj = {};
 
@@ -7,7 +7,7 @@ middlewareObj.checkListingOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
 		Listing.findById(req.params.id, function(err,foundListing){
 			if (err || !foundListing) {
-				req.flash("error", "Comment not found");
+				req.flash("error", "Listing not found");
 				res.redirect("back")}
 			else {
 				if (foundListing.author.id.equals(req.user.id) || req.user.isAdmin) {
@@ -24,15 +24,15 @@ middlewareObj.checkListingOwnership = function(req,res,next){
 	}
 }
 
-middlewareObj.checkCommentOwnership = function(req,res,next){
+middlewareObj.checkReviewOwnership = function(req,res,next){
 	if(req.isAuthenticated()){
-		Comment.findById(req.params.comment_id, function(err,foundComment){
-			if (err || !foundComment) {
-				req.flash("error", "Listing not found");
+		Review.findById(req.params.review_id, function(err,foundReview){
+			if (err || !foundReview) {
+				req.flash("error", "Review not found");
 				res.redirect("back")
 			}
 			else {
-				if (foundComment.author.id.equals(req.user.id) || req.user.isAdmin) {
+				if (foundReview.author.id.equals(req.user.id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash("Permission denied");
@@ -62,18 +62,18 @@ middlewareObj.isLoggedInAdmin = function(req,res,next){
 	res.redirect("back");
 }
 
-middlewareObj.checkCommentExistence = function(req,res,next){
+middlewareObj.checkReviewExistence = function(req,res,next){
 	if (req.isAuthenticated()) {
-		Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+		Listing.findById(req.params.id).populate("reviews").exec(function(err,foundListing){
 			if (err || !foundListing) {
 				req.flash("err", "Listing not found.");
 				return res.redirect("back");
 			}
-			let foundComment = foundListing.comments.some(function(comment){
-				return comment.author.id.equals(req.user._id);
+			let foundReview = foundListing.reviews.some(function(review){
+				return review.author.id.equals(req.user._id);
 			});
-			if (foundComment) {
-				req.flash("error", "You have already posted a comment");
+			if (foundReview) {
+				req.flash("error", "You have already posted a review");
 				return res.redirect("/listings/" + foundListing._id);
 			}
 			next();
@@ -84,15 +84,15 @@ middlewareObj.checkCommentExistence = function(req,res,next){
 	}
 }
 
-middlewareObj.calculateAverage= function(comments){
-	if(comments.length === 0) {
+middlewareObj.calculateAverage= function(reviews){
+	if(reviews.length === 0) {
 		return 0;
 	}
 	let sum = 0;
-	comments.forEach(function(comment){
-		sum += comment.rating;
+	reviews.forEach(function(review){
+		sum += review.rating;
 	});
-	return sum / comments.length;
+	return sum / reviews.length;
 }
 
 middlewareObj.escapeRegex = function(text) {

@@ -1,7 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var Listing = require("../models/listing");
-var Comment = require("../models/comment");
+var Review = require("../models/review");
 var middleware = require("../middleware");
 
 // Index Route
@@ -55,8 +55,8 @@ router.post("/", middleware.isLoggedInAdmin, function(req,res){
 
 // Show Route - Main
 router.get(("/:id"), function(req,res){
-	Listing.findById(req.params.id).populate("comments").populate({
-		path: "comments",
+	Listing.findById(req.params.id).populate("reviews").populate({
+		path: "reviews",
 		options: {sort: {createdAt: -1}}
 	}).exec(function(err,foundListing){
 		if (err || !foundListing) {
@@ -70,7 +70,7 @@ router.get(("/:id"), function(req,res){
 
 // Show Route - Gallery
 router.get(("/:id/gallery"), function(req,res){
-	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+	Listing.findById(req.params.id).populate("reviews").exec(function(err,foundListing){
 		if (err || !foundListing) {
 			req.flash("error", "Listing not found");
 			res.redirect("back");
@@ -82,7 +82,7 @@ router.get(("/:id/gallery"), function(req,res){
 
 // Show Route - Features
 router.get(("/:id/features"), function(req,res){
-	Listing.findById(req.params.id).populate("comments").exec(function(err,foundListing){
+	Listing.findById(req.params.id).populate("reviews").exec(function(err,foundListing){
 		if (err || !foundListing) {
 			req.flash("error", "Listing not found");
 			res.redirect("back");
@@ -130,7 +130,7 @@ router.delete("/:id", middleware.checkListingOwnership, function(req, res){
 			req.flash("error", err.message);
 			res.redirect("/listings");
         } else {
-	        Comment.deleteMany( {_id: { $in: removedListing.comments } }, function(err){
+	        Review.deleteMany( {_id: { $in: removedListing.reviews } }, function(err){
 	            if (err) {
 	                console.log(err);
 	            }

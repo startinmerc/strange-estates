@@ -1,6 +1,6 @@
 var mongoose 	= require("mongoose"),
 	Listing 	= require("./models/listing"),
-	Comment 	= require("./models/comment"),
+	Review 	= require("./models/review"),
 	middleware = require("./middleware");
 
 var list = [
@@ -99,6 +99,50 @@ var list = [
 			"Feature 4",
 		],
 		price: "2000"
+	},
+	{
+		name: "Listing Five", 
+		image: {src: "https://source.unsplash.com/07t5vZoW9n8", alt:"Listing Image"},
+		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
+		author: {
+			id: "5cf7d811373ad70d4d1925ce",
+			username: "Agent 1"
+		},
+		gallery: [
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
+		],
+		features: [
+			"Feature 1",
+			"Feature 2",
+			"Feature 3",
+			"Feature 4",
+		],
+		price: "2000"
+	},
+	{
+		name: "Listing Six", 
+		image: {src: "https://source.unsplash.com/07t5vZoW9n8", alt:"Listing Image"},
+		description: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
+		author: {
+			id: "5cf7d811373ad70d4d1925ce",
+			username: "Agent 1"
+		},
+		gallery: [
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"},
+			{src: "https://source.unsplash.com/collection/4945345", alt: "Gallery Image"}
+		],
+		features: [
+			"Feature 1",
+			"Feature 2",
+			"Feature 3",
+			"Feature 4",
+		],
+		price: "2000"
 	}
 ];
 
@@ -108,7 +152,7 @@ function seedDB(){
 			console.log(err)
 		} 
 		else {
-			Comment.deleteMany({}, (err) => {if (err) {console.log(err)}});
+			Review.deleteMany({}, (err) => {if (err) {console.log(err)}});
 		}
 		list.forEach(function(seed){
 			Listing.create(seed,function(err,listing){
@@ -116,7 +160,7 @@ function seedDB(){
 					console.log(err)
 				} else {
 					// console.log("Added Listing");
-					Comment.create(
+					Review.create(
 						{
 							text: "Climb a tree, wait for a fireman jump to fireman then scratch his face but meow to be let in", 
 							author: {
@@ -124,12 +168,12 @@ function seedDB(){
 								username: "user"
 							},
 							rating: 4
-						}, function(err,comment){
+						}, function(err,review){
 							if (err) {
 								console.log(err)
 							} else {
-								listing.comments.push(comment);
-								listing.rating = middleware.calculateAverage(listing.comments);
+								listing.reviews.push(review);
+								listing.rating = middleware.calculateAverage(listing.reviews);
 								listing.save();
 							}
 						});

@@ -9,10 +9,10 @@ var listingSchema = new mongoose.Schema({
 	},
 	description: String,
 	price: String,
-	comments: [
+	reviews: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Comment"
+			ref: "Review"
 		}
 	],
 	author: {

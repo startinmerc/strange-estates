@@ -11,11 +11,11 @@ const express		= require("express"),
 	methodOverride 	= require("method-override"),
 	flash			= require("connect-flash"),
 
-	Comment 		= require("./models/comment"),
+	Review 		= require("./models/review"),
 	User			= require("./models/user"),
 	Listing 		= require("./models/listing"),
 
-	commentRoutes	= require("./routes/comments"),
+	reviewRoutes	= require("./routes/reviews"),
 	listingRoutes	= require("./routes/listings"),
 	indexRoutes		= require("./routes/index"),
 
@@ -68,7 +68,7 @@ app.use((req,res,next) => {
 // =======================ROUTES========================
 
 app.use("/", indexRoutes);
-app.use("/listings/:id/comments", commentRoutes);
+app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/listings", listingRoutes);
 
 // ====================SERVER LISTEN====================
