@@ -1,6 +1,7 @@
 var mongoose 	= require("mongoose"),
 	Listing 	= require("./models/listing"),
 	Review 	= require("./models/review"),
+	Blog = require("./models/blog"),
 	middleware = require("./middleware");
 
 var list = [
@@ -179,6 +180,27 @@ function seedDB(){
 						});
 					}
 			});
+		});
+		Blog.deleteMany({}, function(err){
+			if (err) {
+				console.log(err)
+			} else {
+				for(i=0;i<5;i++){
+					Blog.create(
+					{
+						text: "Unwrap toilet paper. Freak human out make funny noise mow mow mow mow mow mow success now attack human stinky cat. Catty ipsum lounge in doorway. Destroy couch cough hairball, eat toilet paper but sleep everywhere, but not in my bed and fat baby cat best buddy little guy pelt around the house and up and down stairs chasing phantoms. Scratch me there, elevator butt howl uncontrollably for no reason meow meow, i tell my human and cats are fats i like to pets them they like to meow back yet meow all night having their mate disturbing sleeping humans so wake up human for food at 4am bring your owner a dead bird.",
+						title: "Blog Post!",
+						image: {
+							src: "https://images.unsplash.com/photo-1498938684035-eb4e78131735?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+							alt: "Blog post image"
+						},
+						author: {
+							id: "5cf7d811373ad70d4d1925ce",
+							username: "Agent 1"
+						}
+					});
+				}
+			}
 		});
 		console.log("seeds created");
 	});
