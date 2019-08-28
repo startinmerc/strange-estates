@@ -331,10 +331,23 @@ Version logs for the entire project are below...
 
 ### V19
 
-#### Blog
+#### Blog pt. 1
 * Define blog model
 * Set up index route
 * Index page skeleton
+
+### Blog pt. 2
+* Set up new route
+* New page skeleton
+* Set up post route
+
+### Blog pt. 3
+* Change index page to display posts
+* Concat post text for preview to first sentence
+
+### Blog pt. 4
+* Create show route
+* Create show page
 
 ---
 
