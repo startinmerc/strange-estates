@@ -1,0 +1,33 @@
+<%include ../partials/header%>
+
+<div class="container mt-5">
+	<div class="row mt-3">
+		<h1 class="mx-auto display-4">Add a new blog post</h1>
+	</div>
+	<div class="row">
+		<div class="w-50 mx-auto mt-2">
+			<form action="/blog" method="POST" class="row lg-w-50 mt-2">
+				<div class="form-group col-12 col-lg-6">
+					<label for="blog-title">Blog Title</label>
+					<input class="form-control" name="blogPost[title]" type="text" placeholder="Blog Title" id="blog-title"></input>
+				</div>
+				<div class="form-group col-12 col-lg-6">
+					<label for="blog-title">Blog Image</label>
+					<input class="form-control" name="blogPost[image]" type="text" placeholder="Blog Image" id="blog-image"></input>
+				</div>
+				<div class="form-group col-12">
+					<label for="blog-text">Blog Text</label>
+					<textarea class="form-control" name="blogPost[text]" 
+					placeholder="Blog Text" id="blog-text"></textarea>
+				</div>
+				<div class="form-group col-12">
+					<button class="btn btn-secondary btn-block">Submit</button>
+				</div>
+			</form>
+			<a href="/blog">Back</a>
+		</div>
+	</div>
+</div>
+
+
+<%include ../partials/footer%>

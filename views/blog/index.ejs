@@ -7,21 +7,28 @@
 </header>
 
 <main class="container">
-		<%for(let i=0; i<5;i++){%>
+		<%foundBlogs.forEach(function(post){%>
 		<div class="card text-center m-5">
-			<a href="#"><img class="card-img-top" src="" alt="tbd"></a>
+			<a href="#">
+				<img class="card-img-top" src="<%=post.image.src%>" 
+				alt="<%=post.image.alt%>"></a>
 			<div class="card-body">
-				<a href="#"><h4 class="card-title">Blog Title</h4></a>
+				<a href="#"><h4 class="card-title"><%=post.title%></h4></a>
 				<div class="card-text">
-					<!-- split by first full stop -->
-					<p>Hello, this is a sample blog. It is not a long blog. I do not like the word blog. Blog.</p>
+					<p>
+						<%let concat = post.text.indexOf(".");
+						if (concat<0) {
+							concat = post.text.length;
+						}
+						%><%=post.text.slice(0,concat)%>
+						</p>
 				</div>
 			</div>
 			<div class="card-footer">
-				<p>Posted 01/01/01</p>
+				<p>Posted <%=post.dateCreated%></p>
 			</div>
 		</div>
-		<%}%>
+		<%});%>
 </main>
 
 <%include ../partials/footer%>
