@@ -16,6 +16,10 @@ var blogSchema = new mongoose.Schema({
 	text: {
 		type: String
 	},
+	image: {
+		src: String,
+		alt: String
+	},
 	dateCreated: {
 		type: Date,
 		default: Date.now
