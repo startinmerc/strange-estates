@@ -326,6 +326,9 @@ Version logs for the entire project are below...
 * Add class to old header so screen readable
 * Adjust values & style Blotter instance
 
+#### Comment to Review
+* Change all handling of 'comment' to 'review' to clear up semantics
+
 ---
 
 ### Pending ideas
@@ -351,6 +354,10 @@ Version logs for the entire project are below...
 * Agent Field
 * User Image
 * User Comment
+
+#### Blog
+* Blog model tied in to user for author
+* Routes‹
 
 #### Misc
 * better display for features?
