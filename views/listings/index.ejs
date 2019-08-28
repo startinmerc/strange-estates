@@ -11,16 +11,16 @@
 	</div>
 </header>
 <div class="container">
-		<form action="/listings" method="GET" class="form-inline row py-3 bg-white justify-content-center">
-			<div class="form-group  col-12 col-md-6">
-				<label class="sr-only" for="search">Search listings</label>
-				<input class="form-control mr-1 w-100" type="text" name="search" 
-				id="search" <%if(term){%>value=<%=term%><%} else {%>placeholder="Search listings"<%}%>>
-			</div>
-			<div class="col-12 col-md-3">
-				<input class="btn btn-secondary mt-1 mt-sm-0 w-100" type="submit" name="submit">
-			</div>
-		</form>
+	<form action="/listings" method="GET" class="form-inline row py-3 bg-white justify-content-center">
+		<div class="form-group  col-12 col-md-6">
+			<label class="sr-only" for="search">Search listings</label>
+			<input class="form-control mr-1 w-100" type="text" name="search" 
+			id="search" <%if(term){%>value=<%=term%><%} else {%>placeholder="Search listings"<%}%>>
+		</div>
+		<div class="col-12 col-md-3">
+			<input class="btn btn-secondary mt-1 mt-sm-0 w-100" type="submit" name="submit">
+		</div>
+	</form>
 
 	<div class="card-columns">
 		<% foundListings.forEach(function(listing){ %>
