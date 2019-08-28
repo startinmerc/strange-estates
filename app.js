@@ -13,11 +13,13 @@ const express		= require("express"),
 
 	Review 		= require("./models/review"),
 	User			= require("./models/user"),
-	Listing 		= require("./models/listing"),
+	Listing 	= require("./models/listing"),
+	Blog 			= require("./models/blog"),
 
 	reviewRoutes	= require("./routes/reviews"),
 	listingRoutes	= require("./routes/listings"),
 	indexRoutes		= require("./routes/index"),
+	blogRoutes		= require("./routes/blogs")
 
 	seedDB			= require("./seeds");
 
@@ -70,6 +72,7 @@ app.use((req,res,next) => {
 app.use("/", indexRoutes);
 app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/listings", listingRoutes);
+app.use("/blog", blogRoutes);
 
 // ====================SERVER LISTEN====================
 

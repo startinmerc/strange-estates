@@ -329,6 +329,13 @@ Version logs for the entire project are below...
 #### Comment to Review
 * Change all handling of 'comment' to 'review' to clear up semantics
 
+### V19
+
+#### Blog
+* Define blog model
+* Set up index route
+* Index page skeleton
+
 ---
 
 ### Pending ideas

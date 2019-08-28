@@ -1,0 +1,27 @@
+<%include ../partials/header%>
+
+<header class="container-fluid d-flex align-items-center" id="header" style="background-image: url('https://source.unsplash.com/whqHBbiC7tY')">
+	<div class="container text-center text-white">
+		<h1 class="display-2">Strange Estates Blog</h1>
+	</div>
+</header>
+
+<main class="container">
+		<%for(let i=0; i<5;i++){%>
+		<div class="card text-center m-5">
+			<a href="#"><img class="card-img-top" src="" alt="tbd"></a>
+			<div class="card-body">
+				<a href="#"><h4 class="card-title">Blog Title</h4></a>
+				<div class="card-text">
+					<!-- split by first full stop -->
+					<p>Hello, this is a sample blog. It is not a long blog. I do not like the word blog. Blog.</p>
+				</div>
+			</div>
+			<div class="card-footer">
+				<p>Posted 01/01/01</p>
+			</div>
+		</div>
+		<%}%>
+</main>
+
+<%include ../partials/footer%>
