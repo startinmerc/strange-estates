@@ -9,16 +9,16 @@
 <main class="container">
 		<%foundBlogs.forEach(function(post){%>
 		<div class="card text-center m-5">
-			<a href="#">
+			<a href="/blog/<%=post._id%>">
 				<img class="card-img-top" src="<%=post.image.src%>" 
 				alt="<%=post.image.alt%>"></a>
 			<div class="card-body">
-				<a href="#"><h4 class="card-title"><%=post.title%></h4></a>
+				<a href="/blog/<%=post._id%>"><h4 class="card-title"><%=post.title%></h4></a>
 				<div class="card-text">
 					<p>
-						<%let concat = post.text.indexOf(".");
-						if (concat<0) {
-							concat = post.text.length;
+						<%let concat = post.text.indexOf(".")+1;
+						if (concat<1) {
+							concat = 140;
 						}
 						%><%=post.text.slice(0,concat)%>
 						</p>
