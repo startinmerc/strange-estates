@@ -1,0 +1,18 @@
+<%include ../partials/header%>
+
+<header class="container-fluid d-flex align-items-center" id="header" style="background-image: url('<%=post.image.src%>')">
+	<div class="container text-center text-white">
+		<h1 class="display-2"><%=post.title%></h1>
+	</div>
+</header>
+
+<main class="container">
+	<p>
+		<%=post.text%>
+	</p>
+	<p>
+		Posted <%=post.dateCreated%> by <%=post.author.username%>
+	</p>
+</main>
+
+<%include ../partials/footer%>

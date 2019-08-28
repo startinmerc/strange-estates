@@ -34,4 +34,16 @@ router.post("/", middleware.isLoggedInAdmin, function(req,res){
 	});
 });
 
+// Show Route
+router.get(("/:id"), function(req,res){
+	Blog.findById(req.params.id).exec(function(err,foundPost){
+		if (err || !foundPost) {
+			req.flash("error", "Blog post not found");
+			res.redirect("back");
+		} else {
+			res.render("blog/show", {post:foundPost});
+		}
+	});
+});
+
 module.exports = router;
