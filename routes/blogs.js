@@ -10,8 +10,27 @@ router.get("/", function(req,res){
 			req.flash("error", err.message);
 			res.redirect("back");
 		} else {
-			res.render("blogs/index", {foundBlogs:foundBlogs})
+			res.render("blog/index", {foundBlogs:foundBlogs});
 		}
+	});
+});
+
+//New Route
+router.get("/new", middleware.isLoggedInAdmin, function(req,res){
+	res.render("blog/new");
+});
+
+// Create Route
+router.post("/", middleware.isLoggedInAdmin, function(req,res){
+	Blog.create(req.body.blogPost, function(err,blogPost){
+		if(err){
+			req.flash("error", err.message);
+			return res.redirect("back");
+		}
+		blogPost.author.username = req.user.username;
+		blogPost.author.id = req.user._id;
+		req.flash("success", "Blog post created");
+		res.redirect("/blog");
 	});
 });
 
