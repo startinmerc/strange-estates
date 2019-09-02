@@ -349,6 +349,12 @@ Version logs for the entire project are below...
 * Create show route
 * Create show page
 
+### Blog pt. 5
+* Render blog posts with HTML
+* Better display for date posted
+* Include author
+* Add to navbar
+
 ---
 
 ### Pending ideas
@@ -374,10 +380,6 @@ Version logs for the entire project are below...
 * Agent Field
 * User Image
 * User Comment
-
-#### Blog
-* Blog model tied in to user for author
-* Routes‹
 
 #### Misc
 * better display for features?
