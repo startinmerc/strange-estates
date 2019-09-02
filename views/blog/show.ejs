@@ -8,10 +8,10 @@
 
 <main class="container">
 	<p>
-		<%=post.text%>
+		<%-post.text%>
 	</p>
 	<p>
-		Posted <%=post.dateCreated%> by <%=post.author.username%>
+		Posted <%=post.dateCreated.toDateString()%> by <%=post.author.username%>
 	</p>
 </main>
 

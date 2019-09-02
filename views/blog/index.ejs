@@ -25,7 +25,9 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				<p>Posted <%=post.dateCreated%></p>
+				<p>
+					Posted <b><%=post.dateCreated.toDateString()%></b> by <b><%=post.author.username%></b>
+					</p>
 			</div>
 		</div>
 		<%});%>
