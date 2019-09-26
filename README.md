@@ -355,6 +355,10 @@ Version logs for the entire project are below...
 * Include author
 * Add to navbar
 
+### Bug fixes
+* Add EJS logic to conditionally render h1 if Blotter fails
+* Add shadow to navbar
+
 ---
 
 ### Pending ideas
