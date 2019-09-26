@@ -30,6 +30,7 @@
 <div class="landing-container">
 	<div class="header text-center">
 		<h1 class="display-4">Welcome to</h1>
+		<% try{scope.appendTo(elem)} catch(e){ %><h1 class="display-1">Strange Estates</h1><%}%>
 		<span id="distortion-text"></span>
 		<h1 class="display-1 sr-only sr-only-focusable">Strange Estates</h1>
 	</div>
@@ -70,7 +71,7 @@
 		delay: 1.5
 	});
 
-	// BLOTTER - Example 2
+	// BLOTTER
 	var text = new Blotter.Text("Strange Estates", {
 	  family : "'Sorts Mill Goudy', serif",
 	  size : 96,
@@ -92,7 +93,7 @@
 	var elem = document.getElementById("distortion-text");
 	var scope = blotter.forText(text);
 
-	scope.appendTo(elem);
+	// scope.appendTo(elem);
 </script>
 </body>
 </html>
