@@ -60,6 +60,27 @@ body {
 }
 
 .landing-background li:nth-child(3) {
-	transform: translate(5rem, -1rem);
 	opacity: 0.5;
+	background-color: white;
+}
+
+@media(max-width: 690px){
+	.landing-container h3 {
+		display: none;
+	}
+	.landing-container a {
+		width: 100%;
+	}
+}
+
+@media(max-width: 576px){
+	.landing-container .display-4 {
+		font-size: 2rem;
+	}
+	.landing-container .display-1 {
+		font-size: 5rem;
+	}
+	.landing-container a {
+		font-size: 2rem;
+	}
 }
