@@ -359,6 +359,13 @@ Version logs for the entire project are below...
 * Add EJS logic to conditionally render h1 if Blotter fails
 * Add shadow to navbar
 
+### Landing Page
+* Remove Blotter following review
+* Restyle text for spacing & readability
+* Change GSAP tweens
+* Conditionally add animation based on prefers-reduced-motion
+* Responsive styling
+
 ---
 
 ### Pending ideas
@@ -386,4 +393,5 @@ Version logs for the entire project are below...
 * User Comment
 
 #### Misc
-* better display for features?
+* better display for features
+* login as dropdown from navbar
