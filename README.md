@@ -365,6 +365,7 @@ Version logs for the entire project are below...
 * Change GSAP tweens
 * Conditionally add animation based on prefers-reduced-motion
 * Responsive styling
+* Change tweens to follow mouse movement
 
 ---
 
