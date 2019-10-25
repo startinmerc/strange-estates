@@ -12,15 +12,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
+	font-family: 'Sorts Mill Goudy', serif;
 }
 
 .landing-container a {
-	border-width: 5px;
+	border: none;
 	width: 80%;
 	margin: 0 auto;
 	font-size: 3rem;
-	font-family: 'Sorts Mill Goudy', serif;
 }
 
 .landing-background {
@@ -47,6 +46,7 @@ body {
 	background-repeat: no-repeat;
 	z-index: -1;
 	list-style: none;
+	transform-origin: center;
 	background-image: url("https://images.unsplash.com/photo-1488650989610-0d7e27dc293c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9")
 }
 
