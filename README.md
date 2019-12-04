@@ -1,6 +1,6 @@
 # Strange Estates
 ![Landing page preview](https://i.imgur.com/aI5K5yl.gif)
-## [Landing Page](https://floating-shore-92463.herokuapp.com/)
+## [Landing Page](https://strange-estates.herokuapp.com/)
 
 #### A full-stack RESTful site built on:
 
