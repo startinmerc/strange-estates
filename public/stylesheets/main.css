@@ -63,6 +63,11 @@ body {
 	transform: translateY(100%);
 }
 
+.index-card .card-body {
+	border-left: 1px solid var(--secondary);
+	border-right: 1px solid var(--secondary);
+}
+
 .index-card img {
 	transition: all 300ms ease-in-out;
 }
