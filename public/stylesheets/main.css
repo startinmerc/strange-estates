@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700|Sorts+Mill+Goudy:400,400i&display=swap');
 
+:root {
+	--brand: #73ADBA;
+	--yellow: #FFFDF4;
+}
+
 /*GLOBALS*/
 
 body {
 	font-family: 'Hind', sans-serif;
-	background-color: #FFFDF4;
+	background-color: var(--yellow);
 }
 
 .display-1, .display-2, .display-3, .display-4, .navbar-brand {
@@ -12,7 +17,7 @@ body {
 }
 
 .first-character {
-	color: #73ADBA;
+	color: var(--brand);
     float: left;
     font-size: 4.9rem;
     font-family: 'Sorts Mill Goudy', serif;
@@ -48,7 +53,15 @@ body {
 .navbar-dark .navbar-brand {
 	padding: 0;
 	font-size: 2rem;
-	color: #73ADBA;
+	color: var(--brand);
+}
+
+.footer-link {
+	color: var(--brand);
+}
+
+.footer-link:hover, .footer-link:focus {
+	color: var(--brand);
 }
 
 /*INDEX PAGE*/
