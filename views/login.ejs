@@ -7,15 +7,19 @@
 	<div class="row">
 		<div class="col-lg-6 mx-auto mt-2">
 			<form action="/login" method="post">
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input class="form-control" type="text" 
-					name="username" id="username" placeholder="Username">
+				<div class="input-group mb-4">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="username-label">Username</span>
+					</div>
+					<input type="text" class="form-control" placeholder="Username" 
+					aria-label="Username" aria-describedby="username-label" name="username">
 				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<input class="form-control" type="password" 
-					name="password" id="password" placeholder="Password">
+				<div class="input-group mb-4">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="username-label">Password</span>
+					</div>
+					<input class="form-control" type="password" name="password" id="password"
+					 placeholder="Password" aria-label="password" aria-describedby="password-label">
 				</div>
 				<div class="form-group">
 					<input class="btn btn-secondary btn-block" type="submit" value="Log In">
