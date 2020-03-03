@@ -39,7 +39,14 @@ body {
 	background-repeat: no-repeat;
 }
 
-#header .text {
+#header-small {
+	height: 25vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#header .text, #header-small .text {
 	color: var(--black);
 	background: var(--white);
 }
