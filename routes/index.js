@@ -28,7 +28,10 @@ router.get("/register", function(req,res){
 
 // Create route
 router.post("/register", function(req,res){
-	var newUser = new User({username: req.body.username});
+	var newUser = new User({
+		username: req.body.username,
+		profileImageUrl: req.body.profileImageUrl
+	});
 	if(req.body.adminCode === "spookyghost"){
 		newUser.isAdmin = true;
 	}

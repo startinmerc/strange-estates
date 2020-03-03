@@ -5,6 +5,10 @@ var UserSchema = new mongoose.Schema({
 	username: String,
 	password: String,
 	isAdmin: {type: Boolean, default: false}
+	profileImageUrl: {
+		type: String,
+		default: "/default-user.png"
+	}
 });
 
 UserSchema.plugin(passportLocalMongoose);
