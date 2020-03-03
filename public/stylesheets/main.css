@@ -135,8 +135,9 @@ body {
 	margin: auto;
 }
 
-.review-header {
-	margin-bottom: 0;
+.review-image {
+	max-width: 100%;
+	height: auto;
 }
 
 /*===============RESPONSIVE - MD===============*/
