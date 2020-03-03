@@ -26,24 +26,24 @@
 
 	<div class="card-columns">
 		<% foundListings.forEach(function(listing){ %>
-				<div class="card index-card text-center border-0">
-					<img class="card-img-top" src="<%=listing.image.src%>" alt="<%=listing.image.alt%>">
-					<div class="card-body py-1 px-0">
-						<h4 class="card-title mb-0"><%= listing.name%></h4>
-						<div class="card-text">
-							<i class="fa-star fas"></i>
-							<i class="fa-star <% if (listing.rating > 1.5) { %> fas <% } else { %> far <% } %>"></i>
-							<i class="fa-star <% if (listing.rating > 2.5) { %> fas <% } else { %> far <% } %>"></i>
-							<i class="fa-star <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
-							<i class="fa-star <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
-						</div>
+			<div class="card index-card text-center border-0">
+				<img class="card-img-top" src="<%=listing.image.src%>" alt="<%=listing.image.alt%>">
+				<div class="card-body py-1 px-0">
+					<h4 class="card-title mb-0"><%= listing.name%></h4>
+					<div class="card-text">
+						<i class="fa-star fas"></i>
+						<i class="fa-star <% if (listing.rating > 1.5) { %> fas <% } else { %> far <% } %>"></i>
+						<i class="fa-star <% if (listing.rating > 2.5) { %> fas <% } else { %> far <% } %>"></i>
+						<i class="fa-star <% if (listing.rating > 3.5) { %> fas <% } else { %> far <% } %>"></i>
+						<i class="fa-star <% if (listing.rating > 4.5) { %> fas <% } else { %> far <% } %>"></i>
 					</div>
-					<div class="card-footer p-0 border-0">
-						<p class="mb-0">
-							<a href="/listings/<%=listing._id%>" class="btn btn-secondary d-block stretched-link">Details</a> 
-						</p>
-					</div><!-- card-body -->
-				</div><!-- card -->
+				</div>
+				<div class="card-footer p-0 border-0">
+					<p class="mb-0">
+						<a href="/listings/<%=listing._id%>" class="btn btn-secondary d-block stretched-link">Details</a> 
+					</p>
+				</div><!-- card-body -->
+			</div><!-- card -->
 		<% }); %><!-- forEach-->
 	</div><!-- card-columns -->
 	
