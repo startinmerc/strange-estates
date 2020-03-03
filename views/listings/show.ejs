@@ -87,12 +87,14 @@
 		<div class="col-12 col-md-4 text-center text-md-right">
 			<h4>£<%=listing.price%> per night</h4>
 		</div>
-		<div class="col-12">
-			<p class="">
+	</div>
+
+	<div class="row">
+		<div class="col-12 col-md-6">
+			<h4>Description:</h4>
+			<p>
 				<%=listing.description%>
 			</p>
-		</div>
-		<div class="col-12 ">
 			<span class="text-muted">Listed by <%=listing.author.username%></span>
 			<%if(currentUser && listing.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
 			<a class="btn btn-warning" href="/listings/<%=listing._id%>/edit">Edit</a>
@@ -103,10 +105,8 @@
 			</form>
 			<%}%>
 		</div>
-	</div>
 
-	<div class="row mb-3" id="features">
-		<div class="col-12">
+		<div class="col-12 col-md-6" id="features">
 			<ul class="list-group">
 				<li class="list-group-item text-center"><h4>Key Features</h4></li>
 				<%listing.features.forEach((feature) => {%>
@@ -153,10 +153,11 @@
 								<button class="btn btn-danger">Delete</button>
 							</form>
 						<%}%>
-					</li>
-				<%})%>
-			</ul>
-		</div>
+					</div>
+				</li>
+			<%})%>
+		</ul>
 	</div>
+
 </div>
 <%include ../partials/footer%>
