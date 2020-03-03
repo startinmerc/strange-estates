@@ -27,7 +27,7 @@ body {
 }
 
 .redacted {
-	background-color: var(--black);
+	background-color: var(--dark);
 	color: var(--white);
 	font-family: monospace;
 }
