@@ -5,14 +5,15 @@
 	--yellow: #FFFDF4;
 }
 
-/*GLOBALS*/
+/*===================GLOBALS===================*/
 
 body {
 	font-family: 'Hind', sans-serif;
 	background-color: var(--yellow);
 }
 
-.display-1, .display-2, .display-3, .display-4, .navbar-brand {
+.display-1, .display-2, .display-3,
+ .display-4, .navbar-brand {
 	font-family: 'Sorts Mill Goudy', serif;
 }
 
@@ -26,8 +27,8 @@ body {
 }
 
 .redacted {
-	background-color: #000;
-	color: #FFF;
+	background-color: var(--black);
+	color: var(--white);
 	font-family: monospace;
 }
 
@@ -43,8 +44,7 @@ body {
 	transform: translateY(-50%);
 }
 
-
-/*NAVBAR*/
+/*==================PARTIALS==================*/
 
 .navbar-collapse {
 	flex-grow: 0;
@@ -64,10 +64,10 @@ body {
 	color: var(--brand);
 }
 
-/*INDEX PAGE*/
+/*=================INDEX PAGE=================*/
 
 .search-bar {
-	background-color: #e9ecefBF;
+	background-color: var(--white);
 	border-radius: 0rem 0rem .3rem .3rem;
 }
 
@@ -94,48 +94,16 @@ body {
 	border-radius: 0 0 0.25rem 0.25rem;
 }
 
-@media(max-width: 766px) {
 
-	.jumbotron::before {
-		height: 45.6%;
-	}
-
-}
-
-/*ABOUT PAGE*/
+/*=================ABOUT PAGE=================*/
 
 .profile-photo {
 	max-height: 150px;
 	max-height: 150px;
 }
 
-@media (max-width: 766px) {
-	h1.display-3 {
-		text-align: center;
-	}
-}
 
-/*SHOW LISTING PAGE*/
-
-.nav-pills .nav-link:first-of-type {
-	border-radius: 0 0 0 .25rem;
-}
-
-.nav-pills .nav-link:last-of-type {
-	border-radius: 0 0 .25rem 0;
-}
-
-
-.carousel img {
-	width: auto;
-	height: 700px;
-	margin: auto;
-}
-
-.carousel-item {
-	height: 100%;
-	width: 100%;
-}
+/*==============SHOW LISTING PAGE==============*/
 
 .listing-nav {
 	opacity: 1;
@@ -147,16 +115,44 @@ body {
 	margin-top: -64px;
 }
 
+.nav-pills .nav-link:first-of-type {
+	border-radius: 0 0 0 .25rem;
+}
+
+.nav-pills .nav-link:last-of-type {
+	border-radius: 0 0 .25rem 0;
+}
+
+.carousel-item {
+	height: 100%;
+	width: 100%;
+}
+
+.carousel-image {
+	width: auto;
+	height: 700px;
+	margin: auto;
+}
+
+.review-header {
+	margin-bottom: 0;
+}
+
+/*===============RESPONSIVE - MD===============*/
+
 @media(max-width: 766px) {
 
-	.carousel img {
+	.carousel-image {
 		width: 100%;
 		height: auto;
 	}
 
-}
-/*REVIEWS*/
+	h1.display-3 {
+		text-align: center;
+	}
 
-.review-header {
-	margin-bottom: 0;
+	.jumbotron::before {
+		height: 45.6%;
+	}
+
 }
