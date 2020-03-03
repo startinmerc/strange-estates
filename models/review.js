@@ -2,7 +2,8 @@ var mongoose = require("mongoose");
 
 var reviewSchema = new mongoose.Schema({
 	text: {
-		type: String
+		type: String,
+		required: true
 	},
 	author: {
 		id: {
@@ -17,6 +18,7 @@ var reviewSchema = new mongoose.Schema({
 		type: Number,
 		min: 1,
 		max: 5,
+		required: true
 	},
 	listing: {
 		type: mongoose.Schema.Types.ObjectId,

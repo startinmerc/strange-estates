@@ -2,13 +2,29 @@ var mongoose = require("mongoose");
 
 
 var listingSchema = new mongoose.Schema({
-	name: String,
-	image: {
-		src: String,
-		alt: String
+	name: {
+		type: String,
+		required: true
 	},
-	description: String,
-	price: String,
+	image: {
+		src: {
+			type: String,
+			required: true
+		},
+		alt: {
+			type: String,
+			required: true,
+			default: "Listing"
+		},
+	},
+	description: {
+		type: String,
+		required: true
+	},
+	price: {
+		type: String,
+		required: true
+	},
 	reviews: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
