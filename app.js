@@ -34,7 +34,7 @@ mongoose.connect("mongodb+srv://STM:"+process.env.STM+"@cluster0-c9k9l.mongodb.n
 	console.log(err.message);
 });
 
-// =====================USING NPMs======================
+// ===================EXPRESS CONFIG====================
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
