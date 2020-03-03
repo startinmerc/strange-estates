@@ -7,11 +7,11 @@
 	</div>
 </div>
 
-<main class="container">
-	<p>
+<main class="container mt-3 rounded bg-white py-4">
+	<p class="col-12">
 		<%-post.text%>
 	</p>
-	<p>
+	<p class="col-12 text-muted text-right">
 		Posted <%=post.dateCreated.toDateString()%> by <%=post.author.username%>
 	</p>
 </main>
