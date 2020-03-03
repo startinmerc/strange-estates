@@ -386,6 +386,29 @@ Version logs for the entire project are below...
 * Add root vars for custom colors
 * Signup form labels as inline input groups
 * Clean up main.css
+* Rounded containers
+
+#### Show Listing
+* Rearrange reviews as col system
+* Add fallback for user image
+* Change detail/features to split column
+* Match nav-pills to container width
+* Change header sizings
+* Add sr-only review ratings
+* Clean up EJS
+
+#### Header
+* Change to `<div>`
+* Add background color
+* Change font color
+* Add smaller version
+* Reflect reformatting in pages with headers
+
+#### Blog
+* Pass on container styling
+* Better styling for show
+
+### V20
 
 ---
 
@@ -393,7 +416,7 @@ Version logs for the entire project are below...
 
 #### User profiles
 * field & about sections for agents
-* display in comments, about us section
+* display in about us section
 * add to CRUD routes
 
 #### List CRUD updating
@@ -413,5 +436,4 @@ Version logs for the entire project are below...
 * User Comment
 
 #### Misc
-* better display for features
 * login as dropdown from navbar
