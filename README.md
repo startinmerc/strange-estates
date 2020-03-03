@@ -336,30 +336,30 @@ Version logs for the entire project are below...
 * Set up index route
 * Index page skeleton
 
-### Blog pt. 2
+#### Blog pt. 2
 * Set up new route
 * New page skeleton
 * Set up post route
 
-### Blog pt. 3
+#### Blog pt. 3
 * Change index page to display posts
 * Concat post text for preview to first sentence
 
-### Blog pt. 4
+#### Blog pt. 4
 * Create show route
 * Create show page
 
-### Blog pt. 5
+#### Blog pt. 5
 * Render blog posts with HTML
 * Better display for date posted
 * Include author
 * Add to navbar
 
-### Bug fixes
+#### Bug fixes
 * Add EJS logic to conditionally render h1 if Blotter fails
 * Add shadow to navbar
 
-### Landing Page
+#### Landing Page
 * Remove Blotter following review
 * Restyle text for spacing & readability
 * Change GSAP tweens
@@ -367,12 +367,31 @@ Version logs for the entire project are below...
 * Responsive styling
 * Change tweens to follow mouse movement
 
+### Revisiting
+
+#### Models
+* Add required, default to Mongoose schemas
+* Add userImageUrl to schema with fallback
+* Add to route, form
+
+#### Statics
+* add app.use(static) to public/images
+* change refs to static images in app
+
+#### Style Tweaks
+* Responsive image scaling in carousel
+* Border on index-cards
+* Footer restyle
+* Add margin-top to alert messages
+* Add root vars for custom colors
+* Signup form labels as inline input groups
+* Clean up main.css
+
 ---
 
 ### Pending ideas
 
 #### User profiles
-* avatar for all users
 * field & about sections for agents
 * display in comments, about us section
 * add to CRUD routes
