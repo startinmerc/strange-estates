@@ -74,6 +74,12 @@ app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/listings", listingRoutes);
 app.use("/blog", blogRoutes);
 
+// 404 Route
+app.get("*", function(req,res){
+	req.flash("error", "Page not found");
+	res.redirect("/");
+});
+
 // ====================SERVER LISTEN====================
 
 // app.listen(3000, process.env.IP, () => {
