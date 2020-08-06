@@ -49,6 +49,7 @@ body {
 #header .text, #header-small .text {
 	color: var(--black);
 	background: var(--white);
+	mix-blend-mode: screen;
 }
 
 /*==================PARTIALS==================*/
